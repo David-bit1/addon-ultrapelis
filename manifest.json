@@ -1,0 +1,20 @@
+{
+  "id": "com.ultrapelis.stremio",
+  "version": "1.0.0",
+  "name": "Ultrapelis",
+  "description": "Catalogo y streams de Ultrapelis",
+  "resources": ["catalog", "meta", "stream"],
+  "types": ["movie"],
+  "idPrefixes": ["ultrapelis:"],
+  "catalogs": [
+    {
+      "type": "movie",
+      "id": "ultrapelis",
+      "name": "Ultrapelis"
+    }
+  ],
+  "behaviorHints": {
+    "configurable": false,
+    "configurationRequired": false
+  }
+}

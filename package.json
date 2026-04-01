@@ -1,0 +1,20 @@
+{
+  "name": "ultrapelis",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Ultrapelis con backend Node y SQLite",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "RESET_DB=1 node server.js",
+    "db:reset": "mkdir -p data && sqlite3 data/ultrapelis.db < sql/peliculas.sql",
+    "sync:dood": "node -e \"const s=require('./server'); s.ensureDatabase(); s.syncMoviesFromHtml(); console.log(s.syncDoodstreamEmbeds());\"",
+    "sync:veo": "node -e \"const s=require('./server'); s.ensureDatabase(); s.syncMoviesFromHtml(); console.log(s.syncVeoEmbeds());\"",
+    "sync:tmdb": "node -e \"const s=require('./server'); s.ensureDatabase(); s.syncMoviesFromHtml(); s.syncTmdbImages().then(r=>console.log(r)).catch(e=>{console.error(e.message); process.exit(1);});\"",
+    "trailers:add": "node add-trailers.js",
+    "links:check": "node check-links.js",
+    "sitemap:build": "node scripts/generate-sitemap.js"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.7"
+  }
+}

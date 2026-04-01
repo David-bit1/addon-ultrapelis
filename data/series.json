@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "breaking-bad",
+    "title": "Breaking Bad",
+    "poster": "https://image.tmdb.org/t/p/w500/ztkUQvBZ973mB3jPjzpICVnG65w.jpg",
+    "banner": "https://image.tmdb.org/t/p/original/9fa979McZmr8P3jS9vSRQpavYFy.jpg",
+    "genres": ["Drama", "Crimen"],
+    "added_at": "2026-03-27T00:00:00Z",
+    "description": "Walter White, un profesor de química con cáncer, se alía con un exalumno para cocinar metanfetamina."
+  }
+]

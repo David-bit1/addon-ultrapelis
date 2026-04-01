@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap principal
+Sitemap: https://ultrapelis.gt.tc/sitemap.xml
+Sitemap: https://ultrapelis.gt.tc/sitemap-video.xml

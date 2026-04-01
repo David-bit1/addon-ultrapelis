@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700" role="img" aria-label="Banner no disponible">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f1326"/>
+      <stop offset="100%" stop-color="#0a0d1a"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b4a78" stop-opacity="0.2"/>
+      <stop offset="50%" stop-color="#6c82c9" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#3b4a78" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="700" rx="28" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1520" height="620" rx="24" fill="none" stroke="#2c3559" stroke-width="3"/>
+  <rect x="80" y="140" width="1440" height="300" rx="20" fill="#11162a" stroke="#2b3557" stroke-width="2"/>
+  <rect x="80" y="140" width="1440" height="300" rx="20" fill="url(#glow)"/>
+  <g fill="#b9c4ec">
+    <rect x="220" y="500" width="640" height="26" rx="13" opacity="0.9"/>
+    <rect x="220" y="540" width="520" height="18" rx="9" opacity="0.7"/>
+  </g>
+  <g fill="#e7ecff">
+    <rect x="1240" y="190" width="220" height="260" rx="18" opacity="0.12"/>
+    <path d="M1350 215c-58 0-105 47-105 105s47 105 105 105 105-47 105-105-47-105-105-105zm0 42a63 63 0 110 126 63 63 0 010-126z" opacity="0.4"/>
+    <rect x="1260" y="450" width="180" height="22" rx="11" opacity="0.35"/>
+  </g>
+  <text x="220" y="620" font-family="Segoe UI, Arial, sans-serif" font-size="32" fill="#d7defa">Banner no disponible</text>
+  <text x="220" y="655" font-family="Segoe UI, Arial, sans-serif" font-size="18" fill="#9aa6d9">Ultrapelis</text>
+</svg>
