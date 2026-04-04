@@ -2039,6 +2039,25 @@ function toStremioSeriesMeta(serie, baseUrl, videos = null) {
   return meta;
 }
 
+function enrichSeriesFromHtml(serie) {
+  if (!serie) return serie;
+  const slug = String(serie.slug || '').trim();
+  if (!slug) return serie;
+  const filePath = path.join(SERIES_DIR, `${slug}.html`);
+  if (!fs.existsSync(filePath)) return serie;
+  try {
+    const html = fs.readFileSync(filePath, 'utf8');
+    const parsed = parseSeriesHtml(filePath, html);
+    return {
+      ...serie,
+      poster: serie.poster || parsed.posterUrl || serie.poster,
+      banner: serie.banner || parsed.bannerUrl || serie.banner,
+    };
+  } catch (_) {
+    return serie;
+  }
+}
+
 function parseSeriesVideos(filePath, html, slug) {
   const parsed = readSeriesDataFromHtml(html);
   if (!parsed || !parsed.data) return [];
@@ -2279,7 +2298,7 @@ function startServer() {
       if (pathname === `/catalog/series/${ADDON_CATALOG_ID}.json`) {
         const seriesData = loadSeriesData();
         const metas = seriesData
-          .map((serie) => toStremioSeriesMeta(serie, baseUrl))
+          .map((serie) => toStremioSeriesMeta(enrichSeriesFromHtml(serie), baseUrl))
           .filter(Boolean);
         return sendJson(res, 200, { metas });
       }
@@ -2301,7 +2320,8 @@ function startServer() {
         const slug = parseStremioSeriesId(seriesId);
         if (!slug) return sendJson(res, 404, { err: 'Not found' });
         const seriesData = loadSeriesData();
-        const serie = seriesData.find((item) => String(item.slug || '').trim() === slug);
+        const serieRaw = seriesData.find((item) => String(item.slug || '').trim() === slug);
+        const serie = enrichSeriesFromHtml(serieRaw);
         if (!serie) return sendJson(res, 404, { err: 'Not found' });
         const filePath = path.join(SERIES_DIR, `${slug}.html`);
         let videos = [];
