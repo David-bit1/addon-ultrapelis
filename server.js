@@ -30,6 +30,7 @@ const ADDON_ID = 'com.ultrapelis.stremio';
 const ADDON_NAME = 'Ultrapelis';
 const ADDON_CATALOG_ID = 'ultrapelis';
 const ADDON_ID_PREFIX = 'ultrapelis:';
+const SERIES_ID_PREFIX = 'ultrapelis:series:';
 const EXCLUDED_MOVIE_SLUGS = new Set(['el-increible-hulk', 'el-increible-hulk-2008', 'avengers-endgame', 'avengers-endgame-2019']);
 let lastSyncAt = 0;
 let lastSyncCheckAt = 0;
@@ -1332,8 +1333,9 @@ function refreshCacheFromDatabase() {
   writeIndexFile(moviesCache);
 }
 
-function renderCatalogCards(movies) {
-  return movies
+function renderCatalogCards(movies = []) {
+  const list = Array.isArray(movies) ? movies : [];
+  return list
     .map((movie) => {
       const href = `peliculas/${movie.categoria_slug}/${movie.slug}.html`;
       const title = escapeHtml(movie.titulo || 'Sin titulo');
@@ -1503,7 +1505,7 @@ function renderSeriesCards(series, limit = 20) {
         .join('|');
       const alt = `Poster de ${title}`;
       return [
-        `<article class="series-card" data-genres="${escapeHtml(dataGenres)}">`,
+        `<article class="series-card" role="listitem" data-genres="${escapeHtml(dataGenres)}">`,
         '<div class="series-poster">',
         `<img alt="${alt}" loading="lazy" src="${poster}" data-fallbacks="${posterFallbacks}" onerror="this.onerror=null;var l=(this.dataset.fallbacks||'').split('|').map(function(s){return s.trim();}).filter(Boolean);var i=parseInt(this.dataset.fallbackIndex||'0',10)||0;var n=l[i];if(n){this.dataset.fallbackIndex=String(i+1);this.src=n;}"/>`,
         '</div>',
@@ -1516,11 +1518,44 @@ function renderSeriesCards(series, limit = 20) {
     .join('\n');
 }
 
-function renderRecentEpisodeCards(episodes, limit = 20) {
+function renderSeriesFeaturedCards(series, limit = 20) {
   const posterFallbacks = [
     'img/poster-fallback.svg',
     './img/poster-fallback.svg',
     '/img/poster-fallback.svg',
+  ].join('|');
+  return series
+    .slice(0, limit)
+    .map((item) => {
+      const href = `series/${item.slug || ''}.html`;
+      const title = escapeHtml(item.title || 'Serie');
+      const poster = escapeHtml(item.poster || 'img/poster-fallback.svg');
+      const genres = Array.isArray(item.genres) ? item.genres : [];
+      const meta = genres.length ? genres.join(' • ') : '';
+      const dataGenres = genres
+        .map((genre) => String(genre || '').trim().toLowerCase())
+        .filter(Boolean)
+        .join('|');
+      const alt = `Poster de ${title}`;
+      return [
+        `<article class="featured-card" role="listitem" data-genres="${escapeHtml(dataGenres)}">`,
+        '<div class="featured-poster">',
+        `<img alt="${alt}" loading="lazy" src="${poster}" data-fallbacks="${posterFallbacks}" onerror="this.onerror=null;var l=(this.dataset.fallbacks||'').split('|').map(function(s){return s.trim();}).filter(Boolean);var i=parseInt(this.dataset.fallbackIndex||'0',10)||0;var n=l[i];if(n){this.dataset.fallbackIndex=String(i+1);this.src=n;}"/>`,
+        '</div>',
+        `<div class="featured-title">${title}</div>`,
+        `<div class="featured-meta">${escapeHtml(meta || 'N/D')}</div>`,
+        `<a class="featured-button" href="${escapeHtml(href)}">Ver serie</a>`,
+        '</article>',
+      ].join('');
+    })
+    .join('\n');
+}
+
+function renderRecentEpisodeCards(episodes, limit = 20) {
+  const posterFallbacks = [
+    'img/banner-fallback.svg',
+    './img/banner-fallback.svg',
+    '/img/banner-fallback.svg',
   ].join('|');
 
   if (!episodes.length) {
@@ -1537,25 +1572,24 @@ function renderRecentEpisodeCards(episodes, limit = 20) {
       const badge = `${seasonLabel} • ${episodeLabel}`;
       const meta = `${seasonLabel} • ${episodeLabel} • ${epTitle}`;
       const href = `series/${episode.slug}.html?season=${episode.seasonNumber}&episode=${episode.episodeNumber}`;
-      const poster = escapeHtml(episode.poster || 'img/poster-fallback.svg');
+      const banner = escapeHtml(episode.banner || 'img/banner-fallback.svg');
 
       return [
-        '<article class="series-card">',
-        '<div class="series-poster">',
-        `<span class="episode-badge">${badge}</span>`,
-        `<img alt="Poster de ${title}" loading="lazy" src="${poster}" data-fallbacks="${posterFallbacks}" onerror="this.onerror=null;var l=(this.dataset.fallbacks||'').split('|').map(function(s){return s.trim();}).filter(Boolean);var i=parseInt(this.dataset.fallbackIndex||'0',10)||0;var n=l[i];if(n){this.dataset.fallbackIndex=String(i+1);this.src=n;}"/>`,
+        `<a href="${escapeHtml(href)}" class="featured-card" role="listitem" style="flex: 0 0 220px; min-width: 220px; text-decoration: none; color: inherit; scroll-snap-align: start; padding: 12px; background: #0f1322; border: 1px solid #232742; border-radius: 14px;">`,
+        '<div class="featured-poster" style="aspect-ratio: 16/9; position: relative; overflow: hidden; border-radius: 8px; margin-bottom: 10px; border: 1px solid #242a44;">',
+        `<span class="episode-badge" style="position: absolute; top: 8px; right: 8px; z-index: 2; background: rgba(7, 9, 16, 0.9); border: 1px solid #2a3152; color: #f4f6ff; padding: 2px 6px; border-radius: 6px; font-size: 10px; font-weight: bold;">${badge}</span>`,
+        `<img alt="Miniatura de ${title}" loading="lazy" src="${banner}" style="width: 100%; height: 100%; object-fit: cover; display: block;" data-fallbacks="${posterFallbacks}" onerror="this.onerror=null;var l=(this.dataset.fallbacks||'').split('|').map(function(s){return s.trim();}).filter(Boolean);var i=parseInt(this.dataset.fallbackIndex||'0',10)||0;var n=l[i];if(n){this.dataset.fallbackIndex=String(i+1);this.src=n;}"/>`,
         '</div>',
-        `<div class="series-title">${title}</div>`,
-        `<div class="series-meta">${meta}</div>`,
-        `<a class="series-button" href="${escapeHtml(href)}">Ver episodio</a>`,
-        '</article>',
+        `<div class="featured-title" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14px; font-weight: 700; color: #e8e8f0; margin-bottom: 4px;">${epTitle}</div>`,
+        `<div class="featured-meta" style="font-size: 12px; color: #9aa0b4;">${title} • ${seasonLabel}${episodeLabel}</div>`,
+        '</a>',
       ].join('');
     })
     .join('\n');
 }
 
-function getRecentEpisodesFromSeries(days = 7, perSeriesLimit = 5, limit = 20) {
-  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
+function getRecentEpisodesFromSeries(days = 365, perSeriesLimit = 50, limit = 100) {
+  const cutoff = Date.now() - (days || 365) * 24 * 60 * 60 * 1000;
   const files = walkHtmlFiles(SERIES_DIR);
   const episodes = [];
 
@@ -1573,7 +1607,7 @@ function getRecentEpisodesFromSeries(days = 7, perSeriesLimit = 5, limit = 20) {
 
     const seriesInfo = parseSeriesHtml(filePath, ensured.html);
     const seriesTitle = seriesInfo.titulo || seriesInfo.slug || 'Serie';
-    const poster = seriesInfo.posterUrl || seriesInfo.bannerUrl || 'img/poster-fallback.svg';
+    const banner = seriesInfo.bannerUrl || seriesInfo.posterUrl || 'img/banner-fallback.svg';
 
     const seasons = Array.isArray(data.seasons) ? data.seasons : [];
     const seriesEpisodes = [];
@@ -1583,13 +1617,13 @@ function getRecentEpisodesFromSeries(days = 7, perSeriesLimit = 5, limit = 20) {
       eps.forEach((ep, epIdx) => {
         const sources = Array.isArray(ep?.sources) ? ep.sources : [];
         if (!sources.find((item) => item && item.src)) return;
-        const addedAtMs = Date.parse(String(ep.added_at || ''));
-        if (!Number.isFinite(addedAtMs) || addedAtMs < cutoff) return;
+        const addedAtMs = Date.parse(String(ep.added_at || '')) || Date.now();
+        // Eliminamos el filtro de fecha para asegurar que aparezcan los capitulos.
         const episodeNumber = Number(ep?.number || epIdx + 1);
         seriesEpisodes.push({
           slug: seriesInfo.slug,
           seriesTitle,
-          poster,
+          banner: ep?.img || ep?.image || banner,
           seasonNumber,
           episodeNumber,
           episodeTitle: ep?.title || `Episodio ${episodeNumber}`,
@@ -1598,114 +1632,32 @@ function getRecentEpisodesFromSeries(days = 7, perSeriesLimit = 5, limit = 20) {
       });
     });
 
-    seriesEpisodes
-      .sort((a, b) => b.addedAtMs - a.addedAtMs)
-      .slice(0, perSeriesLimit)
-      .forEach((ep) => episodes.push(ep));
-  });
-
-  return episodes
-    .sort((a, b) => b.addedAtMs - a.addedAtMs)
-    .slice(0, limit);
-}
-
-function renderRecentEpisodeCards(episodes, limit = 20) {
-  const posterFallbacks = [
-    'img/poster-fallback.svg',
-    './img/poster-fallback.svg',
-    '/img/poster-fallback.svg',
-  ].join('|');
-
-  if (!episodes.length) {
-    return '<p class="section-subtitle">No hay capitulos recientes por ahora.</p>';
-  }
-
-  return episodes
-    .slice(0, limit)
-    .map((episode) => {
-      const title = escapeHtml(episode.seriesTitle || 'Serie');
-      const epTitle = escapeHtml(episode.episodeTitle || 'Episodio');
-      const seasonLabel = `T${episode.seasonNumber}`;
-      const episodeLabel = `E${episode.episodeNumber}`;
-      const badge = `${seasonLabel} • ${episodeLabel}`;
-      const meta = `${seasonLabel} • ${episodeLabel} • ${epTitle}`;
-      const href = `series/${episode.slug}.html?season=${episode.seasonNumber}&episode=${episode.episodeNumber}`;
-      const poster = escapeHtml(episode.poster || 'img/poster-fallback.svg');
-
-      return [
-        '<article class="series-card">',
-        '<div class="series-poster">',
-        `<span class="episode-badge">${badge}</span>`,
-        `<img alt="Poster de ${title}" loading="lazy" src="${poster}" data-fallbacks="${posterFallbacks}" onerror="this.onerror=null;var l=(this.dataset.fallbacks||'').split('|').map(function(s){return s.trim();}).filter(Boolean);var i=parseInt(this.dataset.fallbackIndex||'0',10)||0;var n=l[i];if(n){this.dataset.fallbackIndex=String(i+1);this.src=n;}"/>`,
-        '</div>',
-        `<div class="series-title">${title}</div>`,
-        `<div class="series-meta">${meta}</div>`,
-        `<a class="series-button" href="${escapeHtml(href)}">Ver episodio</a>`,
-        '</article>',
-      ].join('');
-    })
-    .join('\n');
-}
-
-function getRecentEpisodesFromSeries(days = 7, perSeriesLimit = 5, limit = 20) {
-  const cutoff = Date.now() - days * 24 * 60 * 60 * 1000;
-  const files = walkHtmlFiles(SERIES_DIR);
-  const episodes = [];
-
-  files.forEach((filePath) => {
-    let html = '';
-    try {
-      html = fs.readFileSync(filePath, 'utf8');
-    } catch (_) {
-      return;
-    }
-
-    const ensured = ensureSeriesEpisodesAddedAt(filePath, html);
-    const data = ensured.data;
-    if (!data) return;
-
-    const seriesInfo = parseSeriesHtml(filePath, ensured.html);
-    const seriesTitle = seriesInfo.titulo || seriesInfo.slug || 'Serie';
-    const poster = seriesInfo.posterUrl || seriesInfo.bannerUrl || 'img/poster-fallback.svg';
-
-    const seasons = Array.isArray(data.seasons) ? data.seasons : [];
-    const seriesEpisodes = [];
-    seasons.forEach((season, seasonIdx) => {
-      const seasonNumber = Number(season?.number || seasonIdx + 1);
-      const eps = Array.isArray(season?.episodes) ? season.episodes : [];
-      eps.forEach((ep, epIdx) => {
-        const sources = Array.isArray(ep?.sources) ? ep.sources : [];
-        if (!sources.find((item) => item && item.src)) return;
-        const addedAtMs = Date.parse(String(ep.added_at || ''));
-        if (!Number.isFinite(addedAtMs) || addedAtMs < cutoff) return;
-        const episodeNumber = Number(ep?.number || epIdx + 1);
-        seriesEpisodes.push({
-          slug: seriesInfo.slug,
-          seriesTitle,
-          poster,
-          seasonNumber,
-          episodeNumber,
-          episodeTitle: ep?.title || `Episodio ${episodeNumber}`,
-          addedAtMs,
-        });
-      });
+    // Ordenar episodios de la misma serie: fecha, luego temporada y episodio descendente
+    seriesEpisodes.sort((a, b) => {
+      if (b.addedAtMs !== a.addedAtMs) return b.addedAtMs - a.addedAtMs;
+      if (b.seasonNumber !== a.seasonNumber) return b.seasonNumber - a.seasonNumber;
+      return b.episodeNumber - a.episodeNumber;
     });
 
     seriesEpisodes
-      .sort((a, b) => b.addedAtMs - a.addedAtMs)
       .slice(0, perSeriesLimit)
       .forEach((ep) => episodes.push(ep));
   });
 
-  return episodes
-    .sort((a, b) => b.addedAtMs - a.addedAtMs)
-    .slice(0, limit);
+  // Ordenar lista global: fecha, luego agrupar por serie y finalmente temp/ep
+  return episodes.sort((a, b) => {
+    if (b.addedAtMs !== a.addedAtMs) return b.addedAtMs - a.addedAtMs;
+    if (a.seriesTitle !== b.seriesTitle) return a.seriesTitle.localeCompare(b.seriesTitle);
+    if (b.seasonNumber !== a.seasonNumber) return b.seasonNumber - a.seasonNumber;
+    return b.episodeNumber - a.episodeNumber;
+  }).slice(0, limit);
 }
 
-function renderIndexFromTemplate(movies) {
+function renderIndexFromTemplate(movies = []) {
+  const movieList = Array.isArray(movies) ? movies : [];
   const indexPath = path.join(ROOT, 'index.html');
   let html = fs.readFileSync(indexPath, 'utf8');
-  const cards = renderCatalogCards(movies);
+  const cards = renderCatalogCards(movieList);
   const startToken = '<div class="catalog-grid" id="catalog-grid">';
   const endToken = '<div class="catalog-pagination" id="catalog-pagination" aria-label="Paginado"></div>';
   const startIndex = html.indexOf(startToken);
@@ -1718,7 +1670,7 @@ function renderIndexFromTemplate(movies) {
   }
 
   const popular = getPopularMovies(10);
-  const featuredMovies = popular.length ? popular : movies.slice(0, 10);
+  const featuredMovies = popular.length ? popular : movieList.slice(0, 10);
   const featuredCards = renderFeaturedCards(featuredMovies, 10);
   const featuredStartToken = '<div class="featured-row" id="featured-row" role="list">';
   const featuredEndToken = '</div>\n</section>';
@@ -1743,20 +1695,31 @@ function renderIndexFromTemplate(movies) {
   }
 
   const seriesData = loadSeriesData();
-  const seriesRecentToken = '<div class="series-grid" id="series-recent-grid">';
+  const seriesPopularToken = '<div class="featured-row" id="series-popular-grid" role="list">';
+  const seriesPopularStart = html.indexOf(seriesPopularToken);
+  const seriesPopularEnd = html.indexOf('</div>\n</section>', seriesPopularStart);
+  if (seriesPopularStart !== -1 && seriesPopularEnd !== -1) {
+    const popularSeries = seriesData.slice();
+    const seriesPopularCards = renderSeriesFeaturedCards(popularSeries, 20);
+    const before = html.slice(0, seriesPopularStart + seriesPopularToken.length);
+    const after = html.slice(seriesPopularEnd);
+    html = `${before}\n${seriesPopularCards}\n${after}`;
+  }
+
+  const seriesRecentToken = '<div class="featured-row" id="series-recent-grid" role="list">';
   const seriesRecentStart = html.indexOf(seriesRecentToken);
   const seriesRecentEnd = html.indexOf('</div>\n</section>', seriesRecentStart);
   if (seriesRecentStart !== -1 && seriesRecentEnd !== -1) {
     const recentSeries = seriesData
       .slice()
       .sort((a, b) => String(b.added_at || '').localeCompare(String(a.added_at || '')));
-    const seriesRecentCards = renderSeriesCards(recentSeries, 20);
+    const seriesRecentCards = renderSeriesFeaturedCards(recentSeries, 20);
     const before = html.slice(0, seriesRecentStart + seriesRecentToken.length);
     const after = html.slice(seriesRecentEnd);
     html = `${before}\n${seriesRecentCards}\n${after}`;
   }
 
-  const seriesToken = '<div class="series-grid" id="series-grid">';
+  const seriesToken = '<div class="series-grid compact-results" id="series-grid">';
   const seriesStart = html.indexOf(seriesToken);
   const seriesEnd = html.indexOf('</div>\n</section>', seriesStart);
   if (seriesStart !== -1 && seriesEnd !== -1) {
@@ -1766,18 +1729,20 @@ function renderIndexFromTemplate(movies) {
     html = `${before}\n${seriesCards}\n${after}`;
   }
 
-  const recentEpisodesToken = '<div class="series-grid compact-results" id="recent-episodes-grid">';
-  const recentEpisodesStart = html.indexOf(recentEpisodesToken);
+  const recentEpisodesStart = html.indexOf('id="recent-episodes-row"');
   const recentEpisodesEnd = html.indexOf('</div>\n</section>', recentEpisodesStart);
   if (recentEpisodesStart !== -1 && recentEpisodesEnd !== -1) {
-    const recentEpisodes = getRecentEpisodesFromSeries(7, 5, 20);
-    const recentCards = renderRecentEpisodeCards(recentEpisodes, 20);
-    const before = html.slice(0, recentEpisodesStart + recentEpisodesToken.length);
-    const after = html.slice(recentEpisodesEnd);
-    html = `${before}\n${recentCards}\n${after}`;
+    const tagStart = html.lastIndexOf('<div', recentEpisodesStart);
+    const recentEpisodes = getRecentEpisodesFromSeries(90, 50, 100);
+    if (recentEpisodes.length > 0) {
+      const recentCards = renderRecentEpisodeCards(recentEpisodes, 100);
+      const before = html.slice(0, tagStart);
+      const after = html.slice(recentEpisodesEnd);
+      html = `${before}<div class="featured-row" id="recent-episodes-row" role="list" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 16px; padding: 10px 0 20px; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; margin-top: 10px;">\n${recentCards}\n${after}`;
+    }
   }
 
-  const heroMovie = featuredMovies[0] || movies[0];
+  const heroMovie = featuredMovies[0] || movieList[0];
   if (heroMovie) {
     const heroTitle = escapeHtml(heroMovie.titulo || 'Pelicula');
     const heroPoster = escapeHtml(heroMovie.poster_url || 'img/poster-fallback.svg');
@@ -2007,6 +1972,36 @@ function parseStremioMovieId(id) {
   return normalizeSlug(raw);
 }
 
+function toStremioSeriesId(slug) {
+  const safe = normalizeSlug(slug);
+  return safe ? `${SERIES_ID_PREFIX}${safe}` : '';
+}
+
+function parseStremioSeriesId(id) {
+  const raw = String(id || '').trim();
+  if (!raw) return '';
+  if (raw.startsWith(SERIES_ID_PREFIX)) {
+    return normalizeSlug(raw.slice(SERIES_ID_PREFIX.length));
+  }
+  return '';
+}
+
+function parseStremioSeriesVideoId(id) {
+  const raw = String(id || '').trim();
+  if (!raw.startsWith(SERIES_ID_PREFIX)) return null;
+  const rest = raw.slice(SERIES_ID_PREFIX.length);
+  const parts = rest.split(':');
+  const slug = normalizeSlug(parts[0] || '');
+  const episodePart = parts[1] || '';
+  const match = episodePart.match(/^s(\d+)e(\d+)$/i);
+  if (!slug || !match) return null;
+  return {
+    slug,
+    season: Number.parseInt(match[1], 10),
+    episode: Number.parseInt(match[2], 10),
+  };
+}
+
 function toStremioMeta(movie, baseUrl) {
   if (!movie) return null;
   return {
@@ -2021,6 +2016,70 @@ function toStremioMeta(movie, baseUrl) {
     runtime: movie.duracion || '',
     genres: movie.categoria_nombre ? [movie.categoria_nombre] : [],
   };
+}
+
+function toStremioSeriesMeta(serie, baseUrl, videos = null) {
+  if (!serie) return null;
+  const slug = String(serie.slug || '').trim();
+  const id = toStremioSeriesId(slug);
+  if (!id) return null;
+  const genres = Array.isArray(serie.genres) ? serie.genres : [];
+  const meta = {
+    id,
+    type: 'series',
+    name: serie.title || slug,
+    description: serie.description || '',
+    poster: toAbsoluteUrl(baseUrl, serie.poster || ''),
+    background: toAbsoluteUrl(baseUrl, serie.banner || serie.poster || ''),
+    logo: toAbsoluteUrl(baseUrl, serie.poster || ''),
+    releaseInfo: '',
+    genres,
+  };
+  if (Array.isArray(videos)) meta.videos = videos;
+  return meta;
+}
+
+function parseSeriesVideos(filePath, html, slug) {
+  const parsed = readSeriesDataFromHtml(html);
+  if (!parsed || !parsed.data) return [];
+  const data = parsed.data;
+  const seasons = Array.isArray(data.seasons) ? data.seasons : [];
+  const videos = [];
+  seasons.forEach((season, sIdx) => {
+    const seasonNumber = Number(season?.number || sIdx + 1);
+    const eps = Array.isArray(season?.episodes) ? season.episodes : [];
+    eps.forEach((ep, eIdx) => {
+      const episodeNumber = Number(ep?.number || eIdx + 1);
+      const title = String(ep?.title || `Episodio ${episodeNumber}`);
+      const id = `${toStremioSeriesId(slug)}:s${seasonNumber}e${episodeNumber}`;
+      videos.push({
+        id,
+        title,
+        season: seasonNumber,
+        episode: episodeNumber,
+      });
+    });
+  });
+  return videos;
+}
+
+function parseSeriesEpisodeSources(filePath, html) {
+  const parsed = readSeriesDataFromHtml(html);
+  if (!parsed || !parsed.data) return new Map();
+  const data = parsed.data;
+  const seasons = Array.isArray(data.seasons) ? data.seasons : [];
+  const out = new Map();
+  seasons.forEach((season, sIdx) => {
+    const seasonNumber = Number(season?.number || sIdx + 1);
+    const eps = Array.isArray(season?.episodes) ? season.episodes : [];
+    eps.forEach((ep, eIdx) => {
+      const episodeNumber = Number(ep?.number || eIdx + 1);
+      const sources = Array.isArray(ep?.sources) ? ep.sources : [];
+      const key = `s${seasonNumber}e${episodeNumber}`;
+      out.set(key, sources);
+    });
+  });
+  return out;
 }
 
 function getMoviePageUrl(movie, baseUrl) {
@@ -2189,13 +2248,18 @@ function startServer() {
           name: ADDON_NAME,
           description: 'Catalogo y streams de Ultrapelis',
           resources: ['catalog', 'meta', 'stream'],
-          types: ['movie'],
-          idPrefixes: [ADDON_ID_PREFIX],
+          types: ['movie', 'series'],
+          idPrefixes: [ADDON_ID_PREFIX, SERIES_ID_PREFIX],
           catalogs: [
             {
               type: 'movie',
               id: ADDON_CATALOG_ID,
               name: 'Ultrapelis',
+            },
+            {
+              type: 'series',
+              id: ADDON_CATALOG_ID,
+              name: 'Ultrapelis Series',
             },
           ],
           behaviorHints: {
@@ -2212,6 +2276,14 @@ function startServer() {
         return sendJson(res, 200, { metas });
       }
 
+      if (pathname === `/catalog/series/${ADDON_CATALOG_ID}.json`) {
+        const seriesData = loadSeriesData();
+        const metas = seriesData
+          .map((serie) => toStremioSeriesMeta(serie, baseUrl))
+          .filter(Boolean);
+        return sendJson(res, 200, { metas });
+      }
+
       // Metadatos de una película específica para Stremio.
       const addonMetaMatch = pathname.match(/^\/meta\/movie\/([^/]+)\.json$/i);
       if (addonMetaMatch) {
@@ -2223,6 +2295,27 @@ function startServer() {
         return sendJson(res, 200, { meta: toStremioMeta(movie, baseUrl) });
       }
 
+      const seriesMetaMatch = pathname.match(/^\/meta\/series\/([^/]+)\.json$/i);
+      if (seriesMetaMatch) {
+        const seriesId = decodeURIComponent(seriesMetaMatch[1] || '');
+        const slug = parseStremioSeriesId(seriesId);
+        if (!slug) return sendJson(res, 404, { err: 'Not found' });
+        const seriesData = loadSeriesData();
+        const serie = seriesData.find((item) => String(item.slug || '').trim() === slug);
+        if (!serie) return sendJson(res, 404, { err: 'Not found' });
+        const filePath = path.join(SERIES_DIR, `${slug}.html`);
+        let videos = [];
+        if (fs.existsSync(filePath)) {
+          try {
+            const html = fs.readFileSync(filePath, 'utf8');
+            videos = parseSeriesVideos(filePath, html, slug);
+          } catch (_) {
+            videos = [];
+          }
+        }
+        return sendJson(res, 200, { meta: toStremioSeriesMeta(serie, baseUrl, videos) });
+      }
+
       // Fuentes (streams) para una película específica en Stremio.
       const addonStreamMatch = pathname.match(/^\/stream\/movie\/([^/]+)\.json$/i);
       if (addonStreamMatch) {
@@ -2232,6 +2325,47 @@ function startServer() {
         const movie = movieBySlugCache.get(slug);
         if (!movie) return sendJson(res, 200, { streams: [] });
         return sendJson(res, 200, { streams: buildStremioStreams(movie, baseUrl) });
+      }
+
+      const seriesStreamMatch = pathname.match(/^\/stream\/series\/([^/]+)\.json$/i);
+      if (seriesStreamMatch) {
+        const videoId = decodeURIComponent(seriesStreamMatch[1] || '');
+        const parsed = parseStremioSeriesVideoId(videoId);
+        if (!parsed) return sendJson(res, 404, { err: 'Not found' });
+        const { slug, season, episode } = parsed;
+        const filePath = path.join(SERIES_DIR, `${slug}.html`);
+        if (!fs.existsSync(filePath)) return sendJson(res, 404, { err: 'Not found' });
+        let sources = [];
+        try {
+          const html = fs.readFileSync(filePath, 'utf8');
+          const map = parseSeriesEpisodeSources(filePath, html);
+          const key = `s${season}e${episode}`;
+          sources = map.get(key) || [];
+        } catch (_) {
+          sources = [];
+        }
+
+        const streams = [];
+        sources.forEach((src, idx) => {
+          const url = String(src?.src || '').trim();
+          if (!url) return;
+          const isDirect = isDirectMediaUrl(url);
+          streams.push({
+            name: ADDON_NAME,
+            title: String(src?.label || `Servidor ${idx + 1}`),
+            ...(isDirect ? { url } : { externalUrl: url }),
+          });
+        });
+        if (!streams.length) {
+          const pageUrl = `${baseUrl}/series/${slug}.html?season=${season}&episode=${episode}`;
+          streams.push({
+            name: ADDON_NAME,
+            title: 'Ver en Ultrapelis',
+            externalUrl: pageUrl,
+            behaviorHints: { notWebReady: true },
+          });
+        }
+        return sendJson(res, 200, { streams });
       }
 
       // --- API Endpoints ---

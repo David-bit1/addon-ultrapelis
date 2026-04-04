@@ -4,13 +4,18 @@
   "name": "Ultrapelis",
   "description": "Catalogo y streams de Ultrapelis",
   "resources": ["catalog", "meta", "stream"],
-  "types": ["movie"],
-  "idPrefixes": ["ultrapelis:"],
+  "types": ["movie", "series"],
+  "idPrefixes": ["ultrapelis:", "ultrapelis:series:"],
   "catalogs": [
     {
       "type": "movie",
       "id": "ultrapelis",
       "name": "Ultrapelis"
+    },
+    {
+      "type": "series",
+      "id": "ultrapelis",
+      "name": "Ultrapelis Series"
     }
   ],
   "behaviorHints": {
