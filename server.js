@@ -785,6 +785,10 @@ function normalizeFileCode(value) {
   return /^[a-z0-9]+$/i.test(code) ? code : '';
 }
 
+function isDirectMediaUrl(url) {
+  return /\.(m3u8|mp4|webm)(\?|#|$)/i.test(String(url || '').trim());
+}
+
 function normalizeTmdbId(value) {
   const id = Number.parseInt(String(value || '').trim(), 10);
   return Number.isFinite(id) && id > 0 ? id : 0;
