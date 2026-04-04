@@ -2373,7 +2373,9 @@ function startServer() {
           streams.push({
             name: ADDON_NAME,
             title: String(src?.label || `Servidor ${idx + 1}`),
-            ...(isDirect ? { url } : { externalUrl: url }),
+            ...(isDirect
+              ? { url }
+              : { externalUrl: url, behaviorHints: { notWebReady: true } }),
           });
         });
         if (!streams.length) {
