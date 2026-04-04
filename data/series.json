@@ -2,10 +2,28 @@
   {
     "slug": "breaking-bad",
     "title": "Breaking Bad",
-    "poster": "https://image.tmdb.org/t/p/w500/ztkUQvBZ973mB3jPjzpICVnG65w.jpg",
+    "poster": "https://image.tmdb.org/t/p/w500/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg",
     "banner": "https://image.tmdb.org/t/p/original/9fa979McZmr8P3jS9vSRQpavYFy.jpg",
     "genres": ["Drama", "Crimen"],
     "added_at": "2026-03-27T00:00:00Z",
     "description": "Walter White, un profesor de química con cáncer, se alía con un exalumno para cocinar metanfetamina."
+  },
+  {
+    "slug": "parasyte-los-grises",
+    "title": "Parasyte: Los grises",
+    "poster": "https://image.tmdb.org/t/p/w500/1ov3Hh0xsZDQvAAkpJUF7gzYoLe.jpg",
+    "banner": "https://image.tmdb.org/t/p/original/p4rJTY1rvQrffoh2P09sty5cz8B.jpg",
+    "genres": ["Ciencia ficcion", "Terror"],
+    "added_at": "2026-04-03T00:00:00Z",
+    "description": "Parásitos desconocidos toman el control de humanos y desatan una crisis. Una joven intenta sobrevivir mientras carga con una conexión inesperada con una de estas criaturas."
+  },
+  {
+    "slug": "avatar-la-leyenda-de-aang-live-action",
+    "title": "Avatar: La leyenda de Aang (Live Action)",
+    "poster": "https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg",
+    "banner": "https://image.tmdb.org/t/p/original/imlTCObfzISogbvcwB1dokoXAIc.jpg",
+    "genres": ["Fantasia", "Aventura"],
+    "added_at": "2026-04-03T00:00:00Z",
+    "description": "Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo."
   }
 ]

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Mira Avatar: La leyenda de Aang (Live Action) en Ultrapelis. Temporadas y episodios disponibles."/>
+  <meta property="og:title" content="Avatar: La leyenda de Aang (Live Action) | Ultrapelis"/>
+  <meta property="og:image" content="https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg"/>
+  <title>Avatar: La leyenda de Aang (Live Action) | Ultrapelis</title>
+
+  <link href="../img/favicon.png" rel="icon" type="image/png"/>
+  <link href="../style.css?v=20260305" rel="stylesheet"/>
+  <link href="../peliculas.css?v=20260305" rel="stylesheet"/>
+  <style>
+    .hero-movie {
+      --movie-bg: url('https://image.tmdb.org/t/p/original/imlTCObfzISogbvcwB1dokoXAIc.jpg'), url('https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg');
+    }
+  </style>
+  <script id="series-data" type="application/json">
+{
+  "title": "Avatar: La leyenda de Aang (Live Action)",
+  "seasons": [
+    {
+      "number": 1,
+      "episodes": [
+        {
+          "number": 1,
+          "title": "Episodio 1",
+          "sources": [
+            {
+              "label": "Español (Latino)",
+              "src": "../no-video.html"
+            }
+          ],
+          "rating": 7.6,
+          "added_at": "2026-04-03T00:00:00Z"
+        }
+      ],
+      "rating": 7.6
+    }
+  ]
+}
+</script>
+  <script defer src="../series.js?v=20260307"></script>
+</head>
+<body data-movie-id="avatar-la-leyenda-de-aang-live-action">
+  <header class="topbar">
+    <div class="brand">Ultrapelis</div>
+    <a class="card-button" href="../index.html">Volver</a>
+  </header>
+
+  <main>
+    <section class="hero-movie hero">
+      <div class="hero-content">
+        <p class="hero-kicker">Serie</p>
+        <h1 id="series-title">Avatar: La leyenda de Aang (Live Action)</h1>
+        <p class="hero-copy">Fantasia • Aventura • 1 Temporada</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="synopsis-title" class="movie-details">
+      <h2 id="synopsis-title">Sinopsis</h2>
+      <p class="synopsis">Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo.</p>
+    </section>
+
+    <section aria-labelledby="player-title" class="player">
+      <div class="player-header">
+        <h2 id="player-title">Temporadas y episodios</h2>
+        <p id="player-note">Selecciona una temporada y luego un episodio.</p>
+        <p id="season-rating" class="season-rating"></p>
+        <p id="series-views" class="season-rating"></p>
+      </div>
+
+      <div class="player-servers">
+        <div class="player-servers-header">
+          <h3>Temporada</h3>
+          <p>Elige una temporada disponible.</p>
+        </div>
+        <select id="season-select" class="season-select"></select>
+      </div>
+
+      <div id="episode-list" class="episode-list" role="list"></div>
+
+      <div class="player-servers">
+        <div class="player-servers-header">
+          <h3>Servidores</h3>
+          <p>Selecciona un servidor disponible.</p>
+        </div>
+        <div id="source-list" class="server-list" role="tablist" aria-label="Servidores"></div>
+      </div>
+
+      <div class="player-frame">
+        <iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen id="player-iframe" src="" title="Reproductor de video"></iframe>
+      </div>
+    </section>
+
+    <section aria-labelledby="cast-title" class="cast-section">
+      <div class="cast-header">
+        <h2 id="cast-title">Abrir en Web Video Cast</h2>
+        <p>Envia esta serie a la app para reproducirla en tu TV.</p>
+      </div>
+      <div class="cast-actions">
+        <button class="cast-btn" id="cast-open-app" type="button">Abrir en la app</button>
+        <a class="cast-btn ghost" id="cast-get-app" href="https://play.google.com/store/apps/details?id=com.instantbits.cast.webvideo&hl=es_MX&pli=1" rel="noopener" target="_blank">Instalar app</a>
+        <button class="cast-btn ghost" id="cast-copy-page" type="button">Copiar enlace</button>
+      </div>
+      <p class="cast-status" id="cast-status" aria-live="polite"></p>
+    </section>
+
+    <section aria-labelledby="report-title" class="report-section">
+      <div class="report-header">
+        <h2 id="report-title">Reportar un problema</h2>
+        <p>Si algo falla en el reproductor o el video, cuentanos que paso.</p>
+      </div>
+      <form class="report-form" id="report-form" novalidate action="mailto:soporteultrapelis@gmail.com" method="get" enctype="text/plain" target="_blank">
+        <label class="report-field">
+          <span>Tu correo (opcional)</span>
+          <input id="report-email" type="email" placeholder="tucorreo@ejemplo.com" autocomplete="email"/>
+        </label>
+        <label class="report-field">
+          <span>Describe el problema</span>
+          <textarea id="report-message" rows="4" placeholder="Ej: el servidor 2 no carga, se queda en negro."></textarea>
+        </label>
+        <div class="report-actions">
+          <button class="report-btn" type="submit">Enviar reporte</button>
+          <a class="report-link" id="report-mailto" href="mailto:soporteultrapelis@gmail.com">Enviar por correo</a>
+          <button class="report-btn ghost" id="report-copy" type="button">Copiar reporte</button>
+        </div>
+        <p class="report-status" id="report-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">Ultrapelis</div>
+      <p class="footer-copy">Tu cine en casa. Estrenos, clasicos y recomendaciones en un solo lugar.</p>
+      <div class="footer-links">
+        <a href="../index.html">Inicio</a>
+        <a href="../index.html#catalog">Catalogo</a>
+        <a href="mailto:soporteultrapelis@gmail.com">Contacto</a>
+      </div>
+      <p class="footer-rights">© 2026 Ultrapelis. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
