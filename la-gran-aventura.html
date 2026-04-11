@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="robots" content="noindex, nofollow"/>
   <!-- === METADATOS (IMPORTANTE PARA SEO Y PARA EL SISTEMA) === -->
   <meta name="description" content="Mira TITULO_DE_LA_PELICULA en Ultrapelis. Consulta ficha tecnica, sinopsis y opciones para ver la pelicula en linea."/>
   <meta property="og:title" content="TITULO_DE_LA_PELICULA | Ultrapelis"/>
@@ -11,23 +12,23 @@
   <title>TITULO_DE_LA_PELICULA | Ultrapelis</title>
 
   <!-- === ARCHIVOS DE ESTILO Y SCRIPT (NO MODIFICAR) === -->
-  <link href="../../img/favicon.png" rel="icon" type="image/png"/>
-  <link href="../../style.css?v=20260305" rel="stylesheet"/>
-  <link href="../../peliculas.css?v=20260305" rel="stylesheet"/>
+  <link href="./img/favicon.png" rel="icon" type="image/png"/>
+  <link href="./style.css?v=20260305" rel="stylesheet"/>
+  <link href="./peliculas.css?v=20260305" rel="stylesheet"/>
   <style>
     .hero-movie {
       /* URLs para el fondo y el poster de respaldo */
       --movie-bg: url('URL_DEL_BANNER'), url('URL_DEL_POSTER');
     }
   </style>
-  <script defer src="../../movie.js?v=20260307"></script>
+  <script defer src="./movie.js?v=20260307"></script>
 </head>
 <!-- El `data-movie-id` debe coincidir con el nombre del archivo (el slug) -->
 <body data-movie-id="la-gran-aventura">
 
   <header class="topbar">
     <div class="brand">Ultrapelis</div>
-    <a class="card-button" href="../../index.html">Volver</a>
+    <a class="card-button" href="./index.html">Volver</a>
   </header>
 
   <main>
@@ -66,9 +67,7 @@
       </div>
       <div aria-label="Servidores" class="server-list" role="tablist">
         <!-- El primer boton debe tener la clase 'is-active' y el data-src con el enlace del video -->
-        <button class="server-btn is-active" data-src="URL_DEL_VIDEO_EMBED" type="button">Servidor Principal</button>
-        <!-- Puedes dejar este boton de trailer o quitarlo -->
-        <button class="server-btn" data-src="URL_DEL_TRAILER_YOUTUBE" type="button" data-trailer="true">Trailer</button>
+        <button class="server-btn is-active" data-src="./no-video.html" type="button">Servidor Principal</button>
       </div>
       <div class="player-frame">
         <iframe allow="autoplay; fullscreen; picture-in-picture" allowfullscreen id="player-iframe" src="" title="Reproductor de video"></iframe>
@@ -84,9 +83,9 @@
       <div class="footer-brand">Ultrapelis</div>
       <p class="footer-copy">Tu cine en casa. Estrenos, clasicos y recomendaciones en un solo lugar.</p>
       <div class="footer-links">
-        <a href="../../index.html">Inicio</a>
-        <a href="../../index.html#catalog">Catalogo</a>
-        <a href="#">Contacto</a>
+        <a href="./index.html">Inicio</a>
+        <a href="./index.html#catalog">Catalogo</a>
+        <a href="mailto:soporteultrapelis@gmail.com">Contacto</a>
       </div>
       <p class="footer-rights">© 2026 Ultrapelis. Todos los derechos reservados.</p>
     </div>

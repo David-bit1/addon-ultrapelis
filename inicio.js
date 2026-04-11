@@ -45,6 +45,9 @@
   const seriesPopularGrid = document.getElementById("series-popular-grid");
   const seriesRecentGrid = document.getElementById("series-recent-grid");
   const seriesCatalogGrid = document.getElementById("series-grid");
+  const recentEpisodesRow = document.getElementById("recent-episodes-row");
+  const recentEpisodesPrevBtn = document.querySelector('.scroll-btn[data-target="recent-episodes-row"][data-dir="left"]');
+  const recentEpisodesNextBtn = document.querySelector('.scroll-btn[data-target="recent-episodes-row"][data-dir="right"]');
   const mobileMq = window.matchMedia("(max-width: 900px)");
   const tabButtons = Array.from(document.querySelectorAll(".section-tabs .tab-btn"));
   const tabSections = Array.from(document.querySelectorAll("[data-tab-section]"));
@@ -1062,29 +1065,32 @@
       }
     }, 10000);
 
-    const getRecentStep = () => {
-      const firstCard = recentRow.querySelector(".featured-card");
+    const getScrollStep = (row) => {
+      const firstCard = row.querySelector(".featured-card");
       if (!firstCard) return 240;
-      const styles = window.getComputedStyle(recentRow);
+      const styles = window.getComputedStyle(row);
       const gap = Number.parseFloat(styles.columnGap || styles.gap || "16") || 16;
       return firstCard.getBoundingClientRect().width + gap;
     };
 
-    const scrollRecentBy = (direction) => {
-      const maxScrollLeft = recentRow.scrollWidth - recentRow.clientWidth;
+    const scrollRowBy = (row, direction) => {
+      if (!row) return;
+      const maxScrollLeft = row.scrollWidth - row.clientWidth;
       if (maxScrollLeft <= 0) return;
-      const step = getRecentStep();
-      let nextLeft = recentRow.scrollLeft + step * direction;
+      const step = getScrollStep(row);
+      let nextLeft = row.scrollLeft + step * direction;
       if (direction > 0 && nextLeft >= maxScrollLeft - 2) {
         nextLeft = 0;
       } else if (direction < 0 && nextLeft <= 0) {
         nextLeft = maxScrollLeft;
       }
-      recentRow.scrollTo({ left: nextLeft, behavior: scrollBehavior });
+      row.scrollTo({ left: nextLeft, behavior: scrollBehavior });
     };
 
-    recentNextBtn?.addEventListener("click", () => scrollRecentBy(1));
-    recentPrevBtn?.addEventListener("click", () => scrollRecentBy(-1));
+    recentNextBtn?.addEventListener("click", () => scrollRowBy(recentRow, 1));
+    recentPrevBtn?.addEventListener("click", () => scrollRowBy(recentRow, -1));
+    recentEpisodesNextBtn?.addEventListener("click", () => scrollRowBy(recentEpisodesRow, 1));
+    recentEpisodesPrevBtn?.addEventListener("click", () => scrollRowBy(recentEpisodesRow, -1));
   }
 
   // --- Lógica para el banner rotativo del héroe ---

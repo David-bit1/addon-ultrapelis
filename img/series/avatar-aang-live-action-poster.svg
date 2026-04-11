@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Poster Avatar La Leyenda de Aang Live Action</title>
+  <desc id="desc">Poster generado para Avatar: La leyenda de Aang live action</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#101a3a"/>
+      <stop offset="50%" stop-color="#1b4f6f"/>
+      <stop offset="100%" stop-color="#123228"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="900" fill="url(#bg)"/>
+  <circle cx="470" cy="160" r="118" fill="#82ccff" fill-opacity="0.2"/>
+  <circle cx="130" cy="760" r="170" fill="#8fe2b4" fill-opacity="0.12"/>
+  <rect x="36" y="36" width="528" height="828" rx="24" fill="none" stroke="#a6dcff" stroke-opacity="0.36"/>
+  <text x="52" y="114" fill="#e6f5ff" font-size="34" font-family="Arial, sans-serif" font-weight="800">AVATAR</text>
+  <text x="52" y="160" fill="#d1eeff" font-size="26" font-family="Arial, sans-serif" font-weight="700">LA LEYENDA DE AANG</text>
+  <text x="52" y="198" fill="#b9e6d1" font-size="20" font-family="Arial, sans-serif" font-weight="700">LIVE ACTION</text>
+  <text x="52" y="808" fill="#a9d7c3" font-size="22" font-family="Arial, sans-serif">ULTRAPELIS</text>
+</svg>

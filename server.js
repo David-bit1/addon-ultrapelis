@@ -94,6 +94,20 @@ function escapeSql(value) {
   return String(value).replace(/'/g, "''");
 }
 
+function extractServerSources(html) {
+  const out = [];
+  const regex = /<button([^>]*class=["'][^"']*server-btn[^"']*["'][^>]*)data-src=["']([^"']*)["'][^>]*>/gi;
+  let match;
+  while ((match = regex.exec(html)) !== null) {
+    const attrs = match[1] || '';
+    const src = (match[2] || '').trim();
+    if (!src) continue;
+    if (/data-trailer/i.test(attrs)) continue;
+    out.push(src);
+  }
+  return out;
+}
+
 function runExec(sql) {
   try {
     db.exec(sql);
@@ -136,6 +150,9 @@ function ensureOptionalColumns() {
   const names = new Set(cols.map((c) => c.name));
   if (!names.has('veo_embed_url')) {
     runExec('ALTER TABLE peliculas ADD COLUMN veo_embed_url TEXT;');
+  }
+  if (!names.has('extra_embed_url')) {
+    runExec('ALTER TABLE peliculas ADD COLUMN extra_embed_url TEXT;');
   }
   if (!names.has('banner_url')) {
     runExec('ALTER TABLE peliculas ADD COLUMN banner_url TEXT;');
@@ -666,10 +683,14 @@ function parseMovieHtml(filePath, html) {
     calificacion: extractInfoField(html, 'Calificacion'),
     posterUrl: normalizedPoster,
     bannerUrl: normalizedBanner,
-    embedUrl: matchFirst(
-      html,
-      /<button[^>]*class="server-btn is-active"[^>]*data-src="([^"]*)"/i
-    ),
+    ...(() => {
+      const sources = extractServerSources(html);
+      return {
+        embedUrl: sources[0] || '',
+        veoEmbedUrl: sources[1] || '',
+        extraEmbedUrl: sources[2] || '',
+      };
+    })(),
   };
 }
 
@@ -1035,14 +1056,14 @@ function syncMoviesFromHtml() {
       INSERT INTO peliculas (
         categoria_id, titulo, slug, ruta_html, descripcion, sinopsis, 
         director, reparto, estreno_texto, duracion, idioma, 
-        calificacion, poster_url, embed_url
+        calificacion, poster_url, embed_url, veo_embed_url, extra_embed_url
       ) VALUES (
         (SELECT id FROM categorias WHERE slug=${sqlValue(movie.categoriaSlug)}), 
         ${sqlValue(movie.titulo)}, ${sqlValue(movie.slug)}, ${sqlValue(movie.rutaHtml)}, 
         ${sqlValue(movie.descripcion)}, ${sqlValue(movie.sinopsis)}, ${sqlValue(movie.director)}, 
         ${sqlValue(movie.reparto)}, ${sqlValue(movie.estrenoTexto)}, ${sqlValue(movie.duracion)}, 
         ${sqlValue(movie.idioma)}, ${sqlValue(movie.calificacion)}, ${sqlValue(movie.posterUrl)}, 
-        ${sqlValue(movie.embedUrl)}
+        ${sqlValue(movie.embedUrl)}, ${sqlValue(movie.veoEmbedUrl)}, ${sqlValue(movie.extraEmbedUrl)}
       ) 
       ON CONFLICT(slug) DO UPDATE SET 
         categoria_id=excluded.categoria_id, 
@@ -1057,7 +1078,9 @@ function syncMoviesFromHtml() {
         idioma=excluded.idioma, 
         calificacion=excluded.calificacion, 
         poster_url=excluded.poster_url, 
-        embed_url=excluded.embed_url;
+        embed_url=excluded.embed_url,
+        veo_embed_url=excluded.veo_embed_url,
+        extra_embed_url=excluded.extra_embed_url;
       `
     );
     // Actualiza la URL del banner por separado.
@@ -1115,6 +1138,7 @@ function getAllMovies() {
       p.banner_url,
       p.embed_url,
       p.veo_embed_url,
+      p.extra_embed_url,
       c.nombre AS categoria_nombre,
       c.slug AS categoria_slug
     FROM peliculas p
@@ -1288,6 +1312,7 @@ function getPopularMovies(limit = 12) {
       p.banner_url,
       p.embed_url,
       p.veo_embed_url,
+      p.extra_embed_url,
       c.nombre AS categoria_nombre,
       c.slug AS categoria_slug,
       COALESCE(pp.vistas, 0) AS vistas,
@@ -1802,15 +1827,20 @@ function renderMoviePage(movie) {
   const posterWithVer = getUrlWithVer(poster);
   const embed = escapeHtml(movie.embed_url || '');
   const veoEmbed = escapeHtml(movie.veo_embed_url || '');
+  const extraEmbed = escapeHtml(movie.extra_embed_url || '');
   const hasPrimary = Boolean(movie.embed_url);
   const hasVeo = Boolean(movie.veo_embed_url);
+  const hasExtra = Boolean(movie.extra_embed_url);
   const serverButtons = [
     hasPrimary
       ? `<button class="server-btn is-active" data-src="${embed}" type="button">Español (Latino)</button>`
       : '<button class="server-btn is-active" data-src="" type="button">Español (Latino)</button>',
     hasVeo
       ? `<button class="server-btn" data-src="${veoEmbed}" type="button">Español (Latino 2)</button>`
-      : '',
+      : '<button class="server-btn" data-src="" type="button">Español (Latino 2)</button>',
+    hasExtra
+      ? `<button class="server-btn" data-src="${extraEmbed}" type="button">Español (Latino 3)</button>`
+      : '<button class="server-btn" data-src="" type="button">Español (Latino 3)</button>',
   ]
     .filter(Boolean)
     .join('\n        ');
@@ -2140,9 +2170,18 @@ function buildStremioStreams(movie, baseUrl) {
 
   pushStream('Servidor principal', movie.embed_url);
   pushStream('Servidor alterno', movie.veo_embed_url);
+  pushStream('Servidor 3', movie.extra_embed_url);
 
   const pageUrl = getMoviePageUrl(movie, baseUrl);
   if (pageUrl) {
+    while (streams.length < 3) {
+      streams.push({
+        name: ADDON_NAME,
+        title: `Servidor ${streams.length + 1}`,
+        externalUrl: pageUrl,
+        behaviorHints: { notWebReady: true },
+      });
+    }
     streams.push({
       name: ADDON_NAME,
       title: 'Ver en Ultrapelis',
@@ -2281,7 +2320,7 @@ function startServer() {
         maybeSyncMoviesFromHtml();
         return sendJson(res, 200, {
           id: ADDON_ID,
-          version: '1.0.0',
+          version: '1.0.1',
           name: ADDON_NAME,
           description: 'Catalogo y streams de Ultrapelis',
           resources: ['catalog', 'meta', 'stream'],
@@ -2427,6 +2466,16 @@ function startServer() {
             externalUrl: pageUrl,
             behaviorHints: { notWebReady: true },
           });
+        } else if (streams.length < 3) {
+          const pageUrl = `${baseUrl}/series/${slug}.html?season=${season}&episode=${episode}`;
+          while (streams.length < 3) {
+            streams.push({
+              name: ADDON_NAME,
+              title: `Servidor ${streams.length + 1}`,
+              externalUrl: pageUrl,
+              behaviorHints: { notWebReady: true },
+            });
+          }
         }
         return sendJson(res, 200, { streams });
       }

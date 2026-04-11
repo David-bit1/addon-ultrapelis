@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="900" viewBox="0 0 600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Poster Parasyte Los Grises</title>
+  <desc id="desc">Poster generado para Parasyte: Los grises</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0b1023"/>
+      <stop offset="60%" stop-color="#1a2d3b"/>
+      <stop offset="100%" stop-color="#0f1d1e"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="900" fill="url(#bg)"/>
+  <circle cx="470" cy="150" r="120" fill="#6fe7dd" fill-opacity="0.18"/>
+  <circle cx="140" cy="760" r="180" fill="#83f19e" fill-opacity="0.12"/>
+  <rect x="36" y="36" width="528" height="828" rx="24" fill="none" stroke="#8df5cf" stroke-opacity="0.35"/>
+  <text x="52" y="120" fill="#d9fff1" font-size="34" font-family="Arial, sans-serif" font-weight="700">PARASYTE</text>
+  <text x="52" y="166" fill="#b8f7e0" font-size="30" font-family="Arial, sans-serif" font-weight="700">LOS GRISES</text>
+  <text x="52" y="808" fill="#a6d8c9" font-size="22" font-family="Arial, sans-serif">ULTRAPELIS</text>
+</svg>

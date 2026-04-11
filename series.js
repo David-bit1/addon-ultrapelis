@@ -163,7 +163,12 @@
       : fallbackSrc
         ? [{ label: 'Servidor 1', src: fallbackSrc }]
         : [];
-    if (!list.length) return;
+    if (!list.length) {
+      list.push({ label: 'Servidor 1', src: '' });
+    }
+    while (list.length < 3) {
+      list.push({ label: `Servidor ${list.length + 1}`, src: '' });
+    }
     list.forEach((source, idx) => {
       const btn = document.createElement('button');
       btn.type = 'button';
@@ -318,7 +323,7 @@
       const rating = Number(season.rating || 0);
       seasonRating.textContent = rating > 0 ? `Calificacion temporada: ${rating.toFixed(1)}/10` : '';
     }
-    episodeList.classList.toggle('is-scroll', episodes.length >= 5);
+    episodeList.classList.toggle('is-scroll', episodes.length >= 3);
     if (!episodes.length) {
       const empty = document.createElement('div');
       empty.className = 'episode-empty';
@@ -368,19 +373,8 @@
     const firstCard = targetCard || episodeList.querySelector('.episode-card');
     if (firstCard) firstCard.click();
 
-    if (episodes.length >= 5) {
-      requestAnimationFrame(() => {
-        const cards = Array.from(episodeList.querySelectorAll('.episode-card'));
-        const fourth = cards[3];
-        if (!fourth) return;
-        const listRect = episodeList.getBoundingClientRect();
-        const fourthRect = fourth.getBoundingClientRect();
-        const height = Math.max(0, fourthRect.bottom - listRect.top);
-        episodeList.style.maxHeight = `${Math.ceil(height)}px`;
-      });
-    } else {
-      episodeList.style.maxHeight = '';
-    }
+    // Remove maxHeight setting for horizontal scrolling
+    episodeList.style.maxHeight = '';
   };
 
   seasons.forEach((season, idx) => {
@@ -414,6 +408,7 @@
     } catch (_) {}
   };
 
+  // Add scroll button functionality
   seasonSelect.addEventListener('change', () => {
     const idx = Number.parseInt(seasonSelect.value, 10);
     const season = seasons[idx] || seasons[0];

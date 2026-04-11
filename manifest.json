@@ -1,6 +1,6 @@
 {
   "id": "com.ultrapelis.stremio",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "Ultrapelis",
   "description": "Catalogo y streams de Ultrapelis",
   "resources": ["catalog", "meta", "stream"],
