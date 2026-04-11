@@ -6,15 +6,15 @@
   "scripts": {
     "start": "node server.js",
     "dev": "RESET_DB=1 node server.js",
-    "db:reset": "mkdir -p data && sqlite3 data/ultrapelis.db < sql/peliculas.sql",
+    "db:reset": "node scripts/db-reset.js",
     "sync:dood": "node -e \"const s=require('./server'); s.ensureDatabase(); s.syncMoviesFromHtml(); console.log(s.syncDoodstreamEmbeds());\"",
     "sync:veo": "node -e \"const s=require('./server'); s.ensureDatabase(); s.syncMoviesFromHtml(); console.log(s.syncVeoEmbeds());\"",
     "sync:tmdb": "node -e \"const s=require('./server'); s.ensureDatabase(); s.syncMoviesFromHtml(); s.syncTmdbImages().then(r=>console.log(r)).catch(e=>{console.error(e.message); process.exit(1);});\"",
     "trailers:add": "node add-trailers.js",
-    "links:check": "node check-links.js",
-    "sitemap:build": "node scripts/generate-sitemap.js"
+    "links:check": "node check-links.js"
   },
   "dependencies": {
+    "better-sqlite3": "^12.8.0",
     "node-fetch": "^2.6.7"
   }
 }

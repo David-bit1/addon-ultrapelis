@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { spawnSync } = require('child_process');
+const Database = require('better-sqlite3');
 
 const HOST = process.env.HOST || '0.0.0.0';
 const PORT = Number.parseInt(process.env.PORT || '3000', 10);
@@ -31,16 +31,20 @@ const ADDON_NAME = 'Ultrapelis';
 const ADDON_CATALOG_ID = 'ultrapelis';
 const ADDON_ID_PREFIX = 'ultrapelis:';
 const SERIES_ID_PREFIX = 'ultrapelis:series:';
-const EXCLUDED_MOVIE_SLUGS = new Set(['el-increible-hulk', 'el-increible-hulk-2008', 'avengers-endgame', 'avengers-endgame-2019']);
+const EXCLUDED_MOVIE_SLUGS = new Set([]);
 let lastSyncAt = 0;
 let lastSyncCheckAt = 0;
 let lastFingerprint = '';
+let lastSeriesFingerprint = '';
 let lastSitemapFingerprint = '';
 let moviesCache = [];
 let movieBySlugCache = new Map();
 let movieByCategorySlugCache = new Map();
 let renderedIndexCache = '';
 
+let db;
+
+let seriesCache = [];
 function loadEnvFile(filePath) {
   if (!fs.existsSync(filePath)) return;
   const lines = fs.readFileSync(filePath, 'utf8').split(/\r?\n/);
@@ -91,9 +95,12 @@ function escapeSql(value) {
 }
 
 function runExec(sql) {
-  const exec = spawnSync('sqlite3', [DB_FILE, sql], { encoding: 'utf8' });
-  if (exec.status !== 0) {
-    throw new Error(exec.stderr || exec.stdout || 'Error ejecutando SQLite');
+  try {
+    db.exec(sql);
+  } catch (error) {
+    const snippet = sql.slice(0, 150);
+    console.error('Error detallado en SQL:', error.message, '\nComando:', snippet);
+    throw new Error(`[SQLite Error] ${error.message} en: ${snippet}`);
   }
 }
 
@@ -106,8 +113,11 @@ function ensureDatabase() {
     fs.mkdirSync(DATA_DIR, { recursive: true });
   }
 
-  const needsBootstrap =
-    !fs.existsSync(DB_FILE) || fs.statSync(DB_FILE).size === 0 || process.env.RESET_DB === '1';
+  const dbExists = fs.existsSync(DB_FILE) && fs.statSync(DB_FILE).size > 0;
+  const needsBootstrap = !dbExists || process.env.RESET_DB === '1';
+
+  db = new Database(DB_FILE);
+  db.pragma('journal_mode = WAL');
 
   if (!needsBootstrap) {
     ensureOptionalColumns();
@@ -116,15 +126,7 @@ function ensureDatabase() {
   }
 
   const sqlText = fs.readFileSync(SQL_FILE, 'utf8');
-  const boot = spawnSync('sqlite3', [DB_FILE], {
-    input: sqlText,
-    encoding: 'utf8',
-  });
-
-  if (boot.status !== 0) {
-    throw new Error(`No se pudo inicializar SQLite: ${boot.stderr || boot.stdout || 'error desconocido'}`);
-  }
-
+  db.exec(sqlText);
   ensureOptionalColumns();
   ensureAnalyticsTables();
 }
@@ -152,18 +154,10 @@ function ensureAnalyticsTables() {
 }
 
 function runQuery(sql) {
-  const exec = spawnSync('sqlite3', ['-json', DB_FILE, sql], { encoding: 'utf8' });
-
-  if (exec.status !== 0) {
-    throw new Error(exec.stderr || exec.stdout || 'Error consultando SQLite');
-  }
-
-  const out = (exec.stdout || '').trim();
-  if (!out) return [];
   try {
-    return JSON.parse(out);
+    return db.prepare(sql).all();
   } catch (error) {
-    throw new Error(`Respuesta JSON invalida de sqlite3: ${error.message}`);
+    throw new Error(`Error consultando SQLite: ${error.message}`);
   }
 }
 
@@ -1434,14 +1428,29 @@ function renderRecentCards(movies, limit = 20) {
 }
 
 function loadSeriesData() {
-  try {
-    if (!fs.existsSync(SERIES_FILE)) return [];
-    const raw = fs.readFileSync(SERIES_FILE, 'utf8');
-    const data = JSON.parse(raw);
-    return Array.isArray(data) ? data : [];
-  } catch (_) {
-    return [];
-  }
+  const files = walkHtmlFiles(SERIES_DIR);
+  if (files.length === 0) return [];
+  
+  return files.map(filePath => {
+    try {
+      const html = fs.readFileSync(filePath, 'utf8');
+      const parsed = parseSeriesHtml(filePath, html);
+      const dataMatch = html.match(SERIES_DATA_REGEX);
+      const internalData = dataMatch ? JSON.parse(dataMatch[1]) : {};
+      
+      return {
+        title: parsed.titulo,
+        slug: parsed.slug,
+        poster: parsed.posterUrl,
+        banner: parsed.bannerUrl,
+        description: parsed.sinopsis || parsed.descripcion,
+        genres: internalData.genres || ['Serie'],
+        added_at: new Date(fs.statSync(filePath).mtimeMs).toISOString()
+      };
+    } catch (e) {
+      return null;
+    }
+  }).filter(Boolean);
 }
 
 const SERIES_DATA_REGEX = /<script[^>]*id=["']series-data["'][^>]*>([\s\S]*?)<\/script>/i;
@@ -2075,11 +2084,13 @@ function parseSeriesVideos(filePath, html, slug) {
       const episodeNumber = Number(ep?.number || eIdx + 1);
       const title = String(ep?.title || `Episodio ${episodeNumber}`);
       const id = `${toStremioSeriesId(slug)}:s${seasonNumber}e${episodeNumber}`;
+      const released = ep.added_at || new Date().toISOString();
       videos.push({
         id,
         title,
         season: seasonNumber,
         episode: episodeNumber,
+        released
       });
     });
   });
@@ -2115,12 +2126,15 @@ function buildStremioStreams(movie, baseUrl) {
   const pushStream = (label, rawUrl, behaviorHints = null) => {
     const url = String(rawUrl || '').trim();
     if (!url) return;
-    const isDirect = /\.(m3u8|mp4|webm)(\?|#|$)/i.test(url);
+    const isDirect = isDirectMediaUrl(url);
+    const hints = !isDirect
+      ? { notWebReady: true, ...(behaviorHints || {}) }
+      : behaviorHints;
     streams.push({
       name: ADDON_NAME,
       title: label,
       ...(isDirect ? { url } : { externalUrl: url }),
-      ...(behaviorHints ? { behaviorHints } : {}),
+      ...(hints ? { behaviorHints: hints } : {}),
     });
   };
 
@@ -2278,11 +2292,13 @@ function startServer() {
               type: 'movie',
               id: ADDON_CATALOG_ID,
               name: 'Ultrapelis',
+              extra: [{ name: 'search', isRequired: false }]
             },
             {
               type: 'series',
               id: ADDON_CATALOG_ID,
               name: 'Ultrapelis Series',
+              extra: [{ name: 'search', isRequired: false }]
             },
           ],
           behaviorHints: {
@@ -2295,12 +2311,33 @@ function startServer() {
       // Catálogo de películas para Stremio.
       if (pathname === `/catalog/movie/${ADDON_CATALOG_ID}.json`) {
         maybeSyncMoviesFromHtml();
-        const metas = moviesCache.map((movie) => toStremioMeta(movie, baseUrl)).filter(Boolean);
+        const query = url.searchParams.get('search');
+        let filtered = moviesCache;
+
+        if (query) {
+          const q = query.toLowerCase();
+          filtered = moviesCache.filter(m => 
+            (m.titulo || '').toLowerCase().includes(q) || 
+            (m.slug || '').toLowerCase().includes(q)
+          );
+        }
+
+        const metas = filtered.map((movie) => toStremioMeta(movie, baseUrl)).filter(Boolean);
         return sendJson(res, 200, { metas });
       }
 
       if (pathname === `/catalog/series/${ADDON_CATALOG_ID}.json`) {
-        const seriesData = loadSeriesData();
+        const query = url.searchParams.get('search');
+        let seriesData = loadSeriesData();
+
+        if (query) {
+          const q = query.toLowerCase();
+          seriesData = seriesData.filter(s => 
+            (s.title || '').toLowerCase().includes(q) || 
+            (s.slug || '').toLowerCase().includes(q)
+          );
+        }
+
         const metas = seriesData
           .map((serie) => toStremioSeriesMeta(enrichSeriesFromHtml(serie), baseUrl))
           .filter(Boolean);
