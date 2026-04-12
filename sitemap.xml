@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
-    <loc>https://ultrapelis.gt.tc/</loc>
-    <lastmod>2026-04-04T05:03:16.543Z</lastmod>
+    <loc>https://ultrapelis.netlify.app/</loc>
+    <lastmod>2026-04-12T03:07:03.910Z</lastmod>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/accion/deadpool-wolverine.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/accion/deadpool-wolverine.html</loc>
     <lastmod>2026-04-03T21:51:45.915Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/5OKwDsJrsjOVgQLnXW6HYEOUolz.jpg</video:thumbnail_loc>
@@ -17,7 +17,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/accion/gladiator-ii.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/accion/gladiator-ii.html</loc>
     <lastmod>2026-04-03T21:51:45.915Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/fbcs5AxrdXwyj1b8bGGMgC9kXrM.jpg</video:thumbnail_loc>
@@ -29,7 +29,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/accion/godzilla-x-kong-the-new-empire.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/accion/godzilla-x-kong-the-new-empire.html</loc>
     <lastmod>2026-04-03T21:51:45.915Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/2YqZ6IyFk7menirwziJvfoVvSOh.jpg</video:thumbnail_loc>
@@ -41,7 +41,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/accion/john-wick-chapter-4.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/accion/john-wick-chapter-4.html</loc>
     <lastmod>2026-04-03T21:51:45.915Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/5f10VmKDT6Zd02KF2BGidsnPFO4.jpg</video:thumbnail_loc>
@@ -53,7 +53,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/accion/sonic-the-hedgehog-3.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/accion/sonic-the-hedgehog-3.html</loc>
     <lastmod>2026-04-03T21:51:45.915Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/nRJH3KgLc3dMLaDJgLQ9u7CxsJg.jpg</video:thumbnail_loc>
@@ -65,78 +65,79 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/animacion/despicable-me-4.html</loc>
-    <lastmod>2026-04-03T21:51:45.914Z</lastmod>
+    <loc>https://ultrapelis.netlify.app/peliculas/animacion/despicable-me-4.html</loc>
+    <lastmod>2026-04-11T19:31:45.761Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/iE9Pi1hkiLUm88uF7o9L9Yzl4lW.jpg</video:thumbnail_loc>
       <video:title>Mi villano favorito 4</video:title>
       <video:description>Gru intenta adaptarse a su nueva vida familiar cuando una amenaza del pasado regresa para cobrar venganza. Con la ayuda de Lucy, las niñas y los Minions, debera proteger a los suyos en una aventura llena de caos.</video:description>
       <video:player_loc allow_embed="yes">https://vimeos.net/embed-nhnyzqp2cznp.html</video:player_loc>
-      <video:publication_date>2026-04-03T21:51:45.914Z</video:publication_date>
+      <video:publication_date>2026-04-11T19:31:45.761Z</video:publication_date>
       <video:duration>5640</video:duration>
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/animacion/inside-out-2.html</loc>
-    <lastmod>2026-04-03T21:51:45.913Z</lastmod>
+    <loc>https://ultrapelis.netlify.app/peliculas/animacion/inside-out-2.html</loc>
+    <lastmod>2026-04-11T19:31:46.581Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/4HEJdpcmTGm3BWWic31G4aCnuC6.jpg</video:thumbnail_loc>
       <video:title>Intensa-Mente 2</video:title>
       <video:description>Riley entra en la adolescencia y su mente se transforma con la llegada de nuevas emociones lideradas por Ansiedad. Alegria y el resto del equipo tendran que encontrar un nuevo equilibrio para acompañarla en esta etapa.</video:description>
       <video:player_loc allow_embed="yes">https://vimeos.net/embed-ygqbs42hctbc.html</video:player_loc>
-      <video:publication_date>2026-04-03T21:51:45.913Z</video:publication_date>
+      <video:publication_date>2026-04-11T19:31:46.581Z</video:publication_date>
       <video:duration>5760</video:duration>
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/animacion/kung-fu-panda-4.html</loc>
-    <lastmod>2026-04-03T21:51:45.913Z</lastmod>
+    <loc>https://ultrapelis.netlify.app/peliculas/animacion/kung-fu-panda-4.html</loc>
+    <lastmod>2026-04-11T19:31:47.301Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/7JspmokDnpm8SEg28wtstfGps0K.jpg</video:thumbnail_loc>
       <video:title>Kung Fu Panda 4</video:title>
       <video:description>Po recibe la tarea de convertirse en lider espiritual del Valle de la Paz, pero antes debe enfrentar a La Camaleona, una villana capaz de imitar a antiguos maestros. Para lograrlo, formara equipo con una astuta ladrona llamada Zhen.</video:description>
       <video:player_loc allow_embed="yes">https://vimeos.net/embed-psdvmd18aq2a.html</video:player_loc>
-      <video:publication_date>2026-04-03T21:51:45.913Z</video:publication_date>
+      <video:publication_date>2026-04-11T19:31:47.301Z</video:publication_date>
       <video:duration>5640</video:duration>
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/animacion/moana-2.html</loc>
-    <lastmod>2026-04-03T21:51:45.913Z</lastmod>
+    <loc>https://ultrapelis.netlify.app/peliculas/animacion/moana-2.html</loc>
+    <lastmod>2026-04-11T19:31:48.017Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/mLAGAFUrRw9pphjnbnhtG1hASSN.jpg</video:thumbnail_loc>
       <video:title>Moana 2</video:title>
       <video:description>Tras recibir un llamado de sus ancestros navegantes, Moana emprende un nuevo viaje hacia mares desconocidos para unir pueblos separados por generaciones. Con una tripulacion inesperada, enfrentara criaturas y tormentas legendarias.</video:description>
       <video:player_loc allow_embed="yes">https://vimeos.net/embed-b7o6j67cn5pr.html</video:player_loc>
-      <video:publication_date>2026-04-03T21:51:45.913Z</video:publication_date>
+      <video:publication_date>2026-04-11T19:31:48.017Z</video:publication_date>
+      <video:duration>6000</video:duration>
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/animacion/ne-zha-2.html</loc>
-    <lastmod>2026-04-03T21:51:45.913Z</lastmod>
+    <loc>https://ultrapelis.netlify.app/peliculas/animacion/ne-zha-2.html</loc>
+    <lastmod>2026-04-11T19:31:48.733Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/rSBlnopTGL6aGpD2gTG1Bfqb2Om.jpg</video:thumbnail_loc>
       <video:title>Ne Zha 2</video:title>
       <video:description>Despues de un gran sacrificio, Ne Zha y Ao Bing luchan por recuperar su forma y proteger a su gente de una nueva amenaza divina. Entre destino y amistad, ambos deberan dominar un poder capaz de cambiar su mundo.</video:description>
       <video:player_loc allow_embed="yes">https://vimeos.net/embed-5op98hottk57.html</video:player_loc>
-      <video:publication_date>2026-04-03T21:51:45.913Z</video:publication_date>
+      <video:publication_date>2026-04-11T19:31:48.733Z</video:publication_date>
       <video:duration>8640</video:duration>
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/animacion/spider-man-across-the-spider-verse.html</loc>
-    <lastmod>2026-04-03T21:51:45.913Z</lastmod>
+    <loc>https://ultrapelis.netlify.app/peliculas/animacion/spider-man-across-the-spider-verse.html</loc>
+    <lastmod>2026-04-11T19:31:49.553Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/rXhgHQmtjTIQOEDU8E2TbUFMjWM.jpg</video:thumbnail_loc>
       <video:title>Spider-Man: A través del Spider-Verso</video:title>
       <video:description>Miles Morales viaja por el multiverso y descubre una red de Spider-Heroes que protege la continuidad de todos los mundos. Cuando una regla amenaza a su familia, debera desafiar el sistema y definir su propio camino.</video:description>
       <video:player_loc allow_embed="yes">https://vimeos.net/embed-fug6bx9d89st.html</video:player_loc>
-      <video:publication_date>2026-04-03T21:51:45.913Z</video:publication_date>
+      <video:publication_date>2026-04-11T19:31:49.553Z</video:publication_date>
       <video:duration>8400</video:duration>
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/animacion/spider-man-into-the-spider-verse.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/animacion/spider-man-into-the-spider-verse.html</loc>
     <lastmod>2026-04-03T21:51:45.914Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/iiZZdoQBEYBv6id8su7ImL0oCbD.jpg</video:thumbnail_loc>
@@ -148,19 +149,19 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/animacion/zootopia-2.html</loc>
-    <lastmod>2026-04-03T21:51:45.914Z</lastmod>
+    <loc>https://ultrapelis.netlify.app/peliculas/animacion/zootopia-2.html</loc>
+    <lastmod>2026-04-11T19:31:50.273Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/jy3FeyNUNYIwylzapjtRx0eQw1P.jpg</video:thumbnail_loc>
       <video:title>Zootopia 2</video:title>
       <video:description>Judy Hopps y Nick Wilde investigan un caso que sacude la convivencia en Zootopia y amenaza con dividir a sus habitantes. En una ciudad llena de nuevas especies y pistas falsas, su alianza sera clave para descubrir la verdad.</video:description>
       <video:player_loc allow_embed="yes">https://vimeos.net/embed-80qf4rbpdhhr.html</video:player_loc>
-      <video:publication_date>2026-04-03T21:51:45.914Z</video:publication_date>
+      <video:publication_date>2026-04-11T19:31:50.273Z</video:publication_date>
       <video:duration>6480</video:duration>
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/biografica/hamnet.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/biografica/hamnet.html</loc>
     <lastmod>2026-04-03T21:51:45.921Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/z0W5pVSriAZnm5BJ2BKxFKPXlh9.jpg</video:thumbnail_loc>
@@ -172,7 +173,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/biografica/the-smashing-machine.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/biografica/the-smashing-machine.html</loc>
     <lastmod>2026-04-03T21:51:45.921Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://upload.wikimedia.org/wikipedia/en/thumb/4/47/The_Smashing_Machine_%282025_film%29.jpg/250px-The_Smashing_Machine_%282025_film%29.jpg</video:thumbnail_loc>
@@ -184,7 +185,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/ciencia-ficcion/avatar-2009.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/ciencia-ficcion/avatar-2009.html</loc>
     <lastmod>2026-04-03T21:51:45.923Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/8zHIgB6tP34Ie34ddllzLg3F4YP.jpg</video:thumbnail_loc>
@@ -196,7 +197,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/ciencia-ficcion/avatar-the-way-of-water.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/ciencia-ficcion/avatar-the-way-of-water.html</loc>
     <lastmod>2026-04-03T21:51:45.922Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/oIVSTKNyKvjm4NmmJi4zjQqHJ02.jpg</video:thumbnail_loc>
@@ -208,7 +209,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/ciencia-ficcion/dune-part-two.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/ciencia-ficcion/dune-part-two.html</loc>
     <lastmod>2026-04-03T21:51:45.922Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/6o5cJjA4srfvU52UKWaqPUuPPgl.jpg</video:thumbnail_loc>
@@ -220,7 +221,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/ciencia-ficcion/jurassic-world-rebirth.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/ciencia-ficcion/jurassic-world-rebirth.html</loc>
     <lastmod>2026-04-03T21:51:45.923Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/v49ceVcpW4Vj0tveTWlzrRdsFf4.jpg</video:thumbnail_loc>
@@ -232,7 +233,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/ciencia-ficcion/lilo-stitch.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/ciencia-ficcion/lilo-stitch.html</loc>
     <lastmod>2026-04-03T21:51:45.922Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/4oLLOAT55JhAoe73VliaSKFvEEr.jpg</video:thumbnail_loc>
@@ -244,7 +245,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/ciencia-ficcion/predator-badlands.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/ciencia-ficcion/predator-badlands.html</loc>
     <lastmod>2026-04-03T21:51:45.922Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/r7TEWHLr1lsIsTkiEFwtM3hAWma.jpg</video:thumbnail_loc>
@@ -256,7 +257,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/ciencia-ficcion/the-running-man.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/ciencia-ficcion/the-running-man.html</loc>
     <lastmod>2026-04-03T21:51:45.922Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/em0NR4vY5vGQhtWOfByoYmDVER9.jpg</video:thumbnail_loc>
@@ -268,7 +269,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/ciencia-ficcion/tron-ares.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/ciencia-ficcion/tron-ares.html</loc>
     <lastmod>2026-04-03T21:51:45.922Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/dz1PbMrkpVhURKtvv7w2Ib1iZDK.jpg</video:thumbnail_loc>
@@ -280,7 +281,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/comedia/barbie.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/comedia/barbie.html</loc>
     <lastmod>2026-04-03T21:51:45.914Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lF3ViyfgJ8VEwQSlqPhuhm6WW43.jpg</video:thumbnail_loc>
@@ -292,7 +293,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/comedia/bugonia.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/comedia/bugonia.html</loc>
     <lastmod>2026-04-03T21:51:45.914Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/zbsdDEmReon5s2x9YcPunGoEFYg.jpg</video:thumbnail_loc>
@@ -304,7 +305,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/comedia/one-battle-after-another.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/comedia/one-battle-after-another.html</loc>
     <lastmod>2026-04-03T21:51:45.914Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/iZ1499F6hYxDxiqioy8oSUaxipG.jpg</video:thumbnail_loc>
@@ -316,7 +317,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/deportes/f1.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/deportes/f1.html</loc>
     <lastmod>2026-04-03T21:51:45.916Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/yKIG63pXN89EfbTA7yKpwxAU1rf.jpg</video:thumbnail_loc>
@@ -328,7 +329,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/drama/downton-abbey-the-grand-finale.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/drama/downton-abbey-the-grand-finale.html</loc>
     <lastmod>2026-04-03T21:51:45.924Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/f474M02m9FocBhR6sr4DAkvoM2c.jpg</video:thumbnail_loc>
@@ -340,7 +341,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/drama/oppenheimer.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/drama/oppenheimer.html</loc>
     <lastmod>2026-04-03T21:51:45.923Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/5t05uhX5ULn8Um2f1ZuznVvIffU.jpg</video:thumbnail_loc>
@@ -352,7 +353,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/drama/peaky-blinders-el-hombre-inmortal-2026.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/drama/peaky-blinders-el-hombre-inmortal-2026.html</loc>
     <lastmod>2026-04-03T21:51:45.924Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9VOONs9kHxK-803mQNd3gVeNkfNR-ou09wQ&amp;s</video:thumbnail_loc>
@@ -364,7 +365,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/fantasia/a-minecraft-movie.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/fantasia/a-minecraft-movie.html</loc>
     <lastmod>2026-04-03T21:51:45.912Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/rZYYmjgyF5UP1AVsvhzzDOFLCwG.jpg</video:thumbnail_loc>
@@ -376,7 +377,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/fantasia/how-to-train-your-dragon.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/fantasia/how-to-train-your-dragon.html</loc>
     <lastmod>2026-04-03T21:51:45.912Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/kjQXYc2Abhy3TBgAZGzJRhN1JaV.jpg</video:thumbnail_loc>
@@ -388,7 +389,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/musical/wicked-for-good.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/musical/wicked-for-good.html</loc>
     <lastmod>2026-04-03T21:51:45.916Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/nyGp2Aysk951mmkSPrSEjRxW72X.jpg</video:thumbnail_loc>
@@ -400,7 +401,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/musical/wicked.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/musical/wicked.html</loc>
     <lastmod>2026-04-03T21:51:45.916Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/hDQXqvmmikekQ15uxhisBDwEA63.jpg</video:thumbnail_loc>
@@ -412,7 +413,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/ant-man-2015.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/ant-man-2015.html</loc>
     <lastmod>2026-04-03T21:51:45.917Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/tMJ0FBFrYZjo6BNHiYbgqiy8Tf5.jpg</video:thumbnail_loc>
@@ -424,7 +425,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/ant-man-and-the-wasp-2018.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/ant-man-and-the-wasp-2018.html</loc>
     <lastmod>2026-04-03T21:51:45.921Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/bvYI6i9lQ3bsup9PgnMF3YYr8ZR.jpg</video:thumbnail_loc>
@@ -436,7 +437,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/ant-man-and-the-wasp-quantumania-2023.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/ant-man-and-the-wasp-quantumania-2023.html</loc>
     <lastmod>2026-04-03T21:51:45.919Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lKHy0ntGPdQeFwvNq8gK1D0anEr.jpg</video:thumbnail_loc>
@@ -448,7 +449,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/avengers-endgame-2019.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/avengers-endgame-2019.html</loc>
     <lastmod>2026-04-03T21:51:45.916Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/br6krBFpaYmCSglLBWRuhui7tPc.jpg</video:thumbnail_loc>
@@ -460,7 +461,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/captain-america-brave-new-world-2025.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/captain-america-brave-new-world-2025.html</loc>
     <lastmod>2026-04-03T21:51:45.919Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/pzIddUEMWhWzfvLI3TwxUG2wGoi.jpg</video:thumbnail_loc>
@@ -472,7 +473,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/captain-america-civil-war-2016.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/captain-america-civil-war-2016.html</loc>
     <lastmod>2026-04-03T21:51:45.917Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/rAGiXaUfPzY7CDEyNKUofk3Kw2e.jpg</video:thumbnail_loc>
@@ -484,7 +485,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/captain-america-the-first-avenger-2011.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/captain-america-the-first-avenger-2011.html</loc>
     <lastmod>2026-04-03T21:51:45.920Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/vSNxAJTlD0r02V9sPYpOjqDZXUK.jpg</video:thumbnail_loc>
@@ -496,7 +497,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/captain-america-the-winter-soldier-2014.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/captain-america-the-winter-soldier-2014.html</loc>
     <lastmod>2026-04-03T21:51:45.918Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/tVFRpFw3xTedgPGqxW0AOI8Qhh0.jpg</video:thumbnail_loc>
@@ -508,7 +509,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/guardians-of-the-galaxy-2014.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/guardians-of-the-galaxy-2014.html</loc>
     <lastmod>2026-04-03T21:51:45.919Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/zqZNnuMtrmK99Xux91KiCdnZxgb.jpg</video:thumbnail_loc>
@@ -520,7 +521,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/guardians-of-the-galaxy-vol-2-2017.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/guardians-of-the-galaxy-vol-2-2017.html</loc>
     <lastmod>2026-04-03T21:51:45.919Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/kdg6Y06jfq9FV7qknWNcKLYtBJn.jpg</video:thumbnail_loc>
@@ -532,7 +533,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/guardians-of-the-galaxy-vol-3-2023.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/guardians-of-the-galaxy-vol-3-2023.html</loc>
     <lastmod>2026-04-03T21:51:45.919Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/6GkKzdNosVAL7UGgwTtCHSxLQ67.jpg</video:thumbnail_loc>
@@ -544,7 +545,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/hulk-2003.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/hulk-2003.html</loc>
     <lastmod>2026-04-03T21:51:45.916Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/scLV1AO6TLi45N7AJanjYR48i78.jpg</video:thumbnail_loc>
@@ -556,7 +557,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/iron-man-2.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/iron-man-2.html</loc>
     <lastmod>2026-04-03T21:51:45.917Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/ayyJVOV5I4MGjti7nIHC3mVCagR.jpg</video:thumbnail_loc>
@@ -568,7 +569,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/iron-man-2008.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/iron-man-2008.html</loc>
     <lastmod>2026-04-03T21:51:45.916Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/tFCTNx7foAsUQpgu2x1KjAJD1wT.jpg</video:thumbnail_loc>
@@ -580,7 +581,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/iron-man-3.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/iron-man-3.html</loc>
     <lastmod>2026-04-03T21:51:45.917Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/cW0fOIZONkgeiMJDYzqUcgl4MUn.jpg</video:thumbnail_loc>
@@ -592,7 +593,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/spider-man-2-2004.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/spider-man-2-2004.html</loc>
     <lastmod>2026-04-03T21:51:45.921Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/9vAx9vN27TpRv98fREN4aXIdhbp.jpg</video:thumbnail_loc>
@@ -604,7 +605,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/spider-man-2002.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/spider-man-2002.html</loc>
     <lastmod>2026-04-03T21:51:45.917Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/mVOCqKvJZvpA1oXPk35OLBsgcPF.jpg</video:thumbnail_loc>
@@ -616,7 +617,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/spider-man-3-2007.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/spider-man-3-2007.html</loc>
     <lastmod>2026-04-03T21:51:45.920Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/yqQRaD0uBWKLvSVe6LuMveb0ZLv.jpg</video:thumbnail_loc>
@@ -628,7 +629,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/spider-man-far-from-home-2019.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/spider-man-far-from-home-2019.html</loc>
     <lastmod>2026-04-03T21:51:45.920Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/o59zDVJDIehGcWZsMUGU5SN0V0D.jpg</video:thumbnail_loc>
@@ -640,7 +641,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/spider-man-homecoming-2017.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/spider-man-homecoming-2017.html</loc>
     <lastmod>2026-04-03T21:51:45.918Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/81qIJbnS2L0rUAAB55G8CZODpS5.jpg</video:thumbnail_loc>
@@ -652,7 +653,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/spider-man-no-way-home-2021.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/spider-man-no-way-home-2021.html</loc>
     <lastmod>2026-04-03T21:51:45.917Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/miZFgV81xG324rpUknQX8dtXuBl.jpg</video:thumbnail_loc>
@@ -664,7 +665,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/superman.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/superman.html</loc>
     <lastmod>2026-04-03T21:51:45.920Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/fvUJb08yatV2b3NUSwuYdQKYoFd.jpg</video:thumbnail_loc>
@@ -676,7 +677,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/the-amazing-spider-man-2-2014.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/the-amazing-spider-man-2-2014.html</loc>
     <lastmod>2026-04-03T21:51:45.918Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/z07KnqwHWDY3q5utu0xBLKo3UWo.jpg</video:thumbnail_loc>
@@ -688,7 +689,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/the-amazing-spider-man-2012.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/the-amazing-spider-man-2012.html</loc>
     <lastmod>2026-04-03T21:51:45.918Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/4cw1Vpp68ec518BHiS6gfa3yDoU.jpg</video:thumbnail_loc>
@@ -700,7 +701,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/the-incredible-hulk-2008.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/the-incredible-hulk-2008.html</loc>
     <lastmod>2026-04-03T21:51:45.918Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/rCTSJzsU2GkH5uLwP1RFb3OjtLs.jpg</video:thumbnail_loc>
@@ -712,7 +713,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/thor-2011.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/thor-2011.html</loc>
     <lastmod>2026-04-03T21:51:45.920Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/qFAVW4XJaxhj7PcpiUI5hhO9bOX.jpg</video:thumbnail_loc>
@@ -724,7 +725,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/thor-love-and-thunder-2022.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/thor-love-and-thunder-2022.html</loc>
     <lastmod>2026-04-03T21:51:45.921Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/4gHWDa9hngo4RJy4BImChkMHooi.jpg</video:thumbnail_loc>
@@ -736,7 +737,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/thor-ragnarok-2017.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/thor-ragnarok-2017.html</loc>
     <lastmod>2026-04-03T21:51:45.918Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/pGtkLdk4rnF2A3Yz2BHiTgRwMU4.jpg</video:thumbnail_loc>
@@ -748,7 +749,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/superheroes/thor-the-dark-world-2013.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/thor-the-dark-world-2013.html</loc>
     <lastmod>2026-04-03T21:51:45.917Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/2dgGWcD31PaoRVIvbU5JYC4NOEY.jpg</video:thumbnail_loc>
@@ -760,7 +761,79 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/terror/28-years-later.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/venom-2018.html</loc>
+    <lastmod>2026-04-05T01:40:23.780Z</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/2uNW4WbgBXL25BAbXGLnLqX71Sw.jpg</video:thumbnail_loc>
+      <video:title>Venom (2018)</video:title>
+      <video:description>Eddie Brock se fusiona con un simbionte alienigena y obtiene poderes extraordinarios. Mientras aprende a convivir con Venom, debera enfrentar a una amenaza que pone en riesgo a toda la ciudad.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/iefjf9ohenda</video:player_loc>
+      <video:publication_date>2026-04-05T01:40:23.780Z</video:publication_date>
+      <video:duration>6720</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/venom-let-there-be-carnage-2021.html</loc>
+    <lastmod>2026-04-05T01:40:38.220Z</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg</video:thumbnail_loc>
+      <video:title>Venom: Carnage liberado (2021)</video:title>
+      <video:description>Eddie Brock y Venom enfrentan a Cletus Kasady, un asesino que se convierte en Carnage, un simbionte aun mas violento y destructivo.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/e66129wt009w</video:player_loc>
+      <video:publication_date>2026-04-05T01:40:38.220Z</video:publication_date>
+      <video:duration>5820</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/venom-the-last-dance-2024.html</loc>
+    <lastmod>2026-04-05T01:40:52.456Z</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/k42Owka8v91trK1qMYwCQCNwJKr.jpg</video:thumbnail_loc>
+      <video:title>Venom: El ultimo baile (2024)</video:title>
+      <video:description>Eddie Brock y Venom emprenden una ultima carrera contra enemigos de ambos mundos. Mientras la caceria se intensifica, deberan tomar una decision final que definira su destino.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/mc3y2mrx3l6h</video:player_loc>
+      <video:publication_date>2026-04-05T01:40:52.456Z</video:publication_date>
+      <video:duration>6540</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/x-men-2-2003.html</loc>
+    <lastmod>2026-04-12T03:06:41.394Z</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/bnZUa8bCq2uz56Jv6Clpcjtvw0V.jpg</video:thumbnail_loc>
+      <video:title>X-Men 2 (2003)</video:title>
+      <video:description>Cuando el coronel antimutante William Stryker secuestra al profesor X y ataca su escuela, los X-Men deben aliarse con su archienemigo Magneto para detenerlo.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/3dpjo4d2p1se</video:player_loc>
+      <video:publication_date>2026-04-12T03:06:41.394Z</video:publication_date>
+      <video:duration>8040</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/x-men-2000.html</loc>
+    <lastmod>2026-04-12T03:06:28.910Z</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/aF170xLGytZcC0xeSlSamImgIi4.jpg</video:thumbnail_loc>
+      <video:title>X-Men (2000)</video:title>
+      <video:description>En un mundo en el que los mutantes (humanos superpotentes evolucionados) existen y son discriminados, se forman dos grupos para un choque inevitable: la Hermandad supremacista, y los X-Men pacifistas.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/gysye2pz0f93</video:player_loc>
+      <video:publication_date>2026-04-12T03:06:28.910Z</video:publication_date>
+      <video:duration>6240</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/peliculas/superheroes/x-men-the-last-stand-2006.html</loc>
+    <lastmod>2026-04-12T03:07:00.038Z</lastmod>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/6FnWDI3mKZhfWv7NznKUFlvSdo0.jpg</video:thumbnail_loc>
+      <video:title>X-Men: La decision final (2006)</video:title>
+      <video:description>El gobierno humano desarrolla una cura para las mutaciones, y Jean Gray se convierte en un personaje oscuro e incontrolable llamado el Fénix que se alía con Magneto, causando una escalada en una batalla total para los X-Men.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/q7fzsnlmd7l7</video:player_loc>
+      <video:publication_date>2026-04-12T03:07:00.038Z</video:publication_date>
+      <video:duration>6240</video:duration>
+    </video:video>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/peliculas/terror/28-years-later.html</loc>
     <lastmod>2026-04-03T21:51:45.924Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/gc5oHGz2AugoAlnfsmie1I0ZdOM.jpg</video:thumbnail_loc>
@@ -772,7 +845,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/terror/black-phone-2.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/terror/black-phone-2.html</loc>
     <lastmod>2026-04-03T21:51:45.925Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/A6QNBDV1u3oaq3guBHGKcEJkYkX.jpg</video:thumbnail_loc>
@@ -784,7 +857,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/terror/good-boy.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/terror/good-boy.html</loc>
     <lastmod>2026-04-03T21:51:45.925Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://upload.wikimedia.org/wikipedia/en/thumb/e/ee/Good_Boy_2025_film_poster.jpg/250px-Good_Boy_2025_film_poster.jpg</video:thumbnail_loc>
@@ -796,7 +869,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/terror/him.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/terror/him.html</loc>
     <lastmod>2026-04-03T21:51:45.924Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/n2xPRI0isWxKfX3UqlfnNPaPusg.jpg</video:thumbnail_loc>
@@ -808,7 +881,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/terror/mega-snake.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/terror/mega-snake.html</loc>
     <lastmod>2026-04-03T21:51:45.924Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/7ke1UaoEootRB5v01RqloxaSF4k.jpg</video:thumbnail_loc>
@@ -820,7 +893,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/terror/the-conjuring-last-rites.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/terror/the-conjuring-last-rites.html</loc>
     <lastmod>2026-04-03T21:51:45.924Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/dyW5mX4wwDoZWgTYObx6pg9V0i9.jpg</video:thumbnail_loc>
@@ -832,7 +905,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/thriller/after-the-hunt.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/thriller/after-the-hunt.html</loc>
     <lastmod>2026-04-03T21:51:45.923Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://upload.wikimedia.org/wikipedia/en/thumb/7/7e/After_the_Hunt_poster.jpg/250px-After_the_Hunt_poster.jpg</video:thumbnail_loc>
@@ -844,7 +917,7 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/peliculas/thriller/the-long-walk.html</loc>
+    <loc>https://ultrapelis.netlify.app/peliculas/thriller/the-long-walk.html</loc>
     <lastmod>2026-04-03T21:51:45.923Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://upload.wikimedia.org/wikipedia/en/thumb/e/e8/The_Long_Walk_%282025_film%29.jpg/250px-The_Long_Walk_%282025_film%29.jpg</video:thumbnail_loc>
@@ -856,18 +929,67 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/series/avatar-la-leyenda-de-aang-live-action.html</loc>
-    <lastmod>2026-04-04T04:09:22.422Z</lastmod>
+    <loc>https://ultrapelis.netlify.app/series/avatar-la-leyenda-de-aang-live-action.html</loc>
+    <lastmod>2026-04-04T20:24:59.731Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg</video:thumbnail_loc>
-      <video:title>Avatar: La leyenda de Aang (Live Action) - T1E1 Episodio 1</video:title>
+      <video:title>Avatar: La leyenda de Aang (Live Action) - T1E1 Aang</video:title>
       <video:description>Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo.</video:description>
-      <video:player_loc allow_embed="yes">../no-video.html</video:player_loc>
-      <video:publication_date>2026-04-04T04:09:22.422Z</video:publication_date>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/l8p349toiomk</video:player_loc>
+      <video:publication_date>2026-04-04T20:24:59.731Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg</video:thumbnail_loc>
+      <video:title>Avatar: La leyenda de Aang (Live Action) - T1E2 Warriors</video:title>
+      <video:description>Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/0z2u9sbz0pe7</video:player_loc>
+      <video:publication_date>2026-04-04T20:24:59.731Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg</video:thumbnail_loc>
+      <video:title>Avatar: La leyenda de Aang (Live Action) - T1E3 Omashu</video:title>
+      <video:description>Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/o3zl97bvc6dj</video:player_loc>
+      <video:publication_date>2026-04-04T20:24:59.731Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg</video:thumbnail_loc>
+      <video:title>Avatar: La leyenda de Aang (Live Action) - T1E4 Into the Dark</video:title>
+      <video:description>Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/l6cwm1l52lfm</video:player_loc>
+      <video:publication_date>2026-04-04T20:24:59.731Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg</video:thumbnail_loc>
+      <video:title>Avatar: La leyenda de Aang (Live Action) - T1E5 Spirited Away</video:title>
+      <video:description>Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/bmuxnsx7qkha</video:player_loc>
+      <video:publication_date>2026-04-04T20:24:59.731Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg</video:thumbnail_loc>
+      <video:title>Avatar: La leyenda de Aang (Live Action) - T1E6 Masks</video:title>
+      <video:description>Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/s9wfjtn5o8t1</video:player_loc>
+      <video:publication_date>2026-04-04T20:24:59.731Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg</video:thumbnail_loc>
+      <video:title>Avatar: La leyenda de Aang (Live Action) - T1E7 The North</video:title>
+      <video:description>Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/3xj9saimhkl4</video:player_loc>
+      <video:publication_date>2026-04-04T20:24:59.731Z</video:publication_date>
+    </video:video>
+    <video:video>
+      <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/lzZpWEaqzP0qVA5nkCc5ASbNcSy.jpg</video:thumbnail_loc>
+      <video:title>Avatar: La leyenda de Aang (Live Action) - T1E8 Legends</video:title>
+      <video:description>Aang, el último nómada aire, despierta para asumir su destino como Avatar y restaurar el equilibrio entre las naciones mientras enfrenta una guerra que amenaza al mundo.</video:description>
+      <video:player_loc allow_embed="yes">https://myvidplay.com/e/y3e32c4uc1vm</video:player_loc>
+      <video:publication_date>2026-04-04T20:24:59.731Z</video:publication_date>
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/series/breaking-bad.html</loc>
+    <loc>https://ultrapelis.netlify.app/series/breaking-bad.html</loc>
     <lastmod>2026-04-04T04:09:40.019Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/ztkUQFLlC19CCMYHW9o1zWhJRNq.jpg</video:thumbnail_loc>
@@ -1305,7 +1427,23 @@
     </video:video>
   </url>
   <url>
-    <loc>https://ultrapelis.gt.tc/series/parasyte-los-grises.html</loc>
+    <loc>https://ultrapelis.netlify.app/series/dexter.html</loc>
+    <lastmod>2026-04-12T02:06:42.561Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/series/hannibal.html</loc>
+    <lastmod>2026-04-12T02:06:44.093Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/series/house-md.html</loc>
+    <lastmod>2026-04-12T02:06:44.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/series/mr-robot.html</loc>
+    <lastmod>2026-04-12T02:06:41.845Z</lastmod>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/series/parasyte-los-grises.html</loc>
     <lastmod>2026-04-04T04:51:44.170Z</lastmod>
     <video:video>
       <video:thumbnail_loc>https://image.tmdb.org/t/p/w500/1ov3Hh0xsZDQvAAkpJUF7gzYoLe.jpg</video:thumbnail_loc>
@@ -1349,5 +1487,9 @@
       <video:player_loc allow_embed="yes">https://myvidplay.com/e/x8af9e4jzfbv</video:player_loc>
       <video:publication_date>2026-04-04T04:51:44.170Z</video:publication_date>
     </video:video>
+  </url>
+  <url>
+    <loc>https://ultrapelis.netlify.app/series/stranger-things.html</loc>
+    <lastmod>2026-04-12T02:06:43.277Z</lastmod>
   </url>
 </urlset>
