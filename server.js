@@ -21,10 +21,6 @@ const MOVIES_DIR = path.join(ROOT, 'peliculas');
 const SERIES_DIR = path.join(ROOT, 'series');
 const SITEMAP_FILE = path.join(ROOT, 'sitemap.xml');
 const SITEMAP_VIDEO_FILE = path.join(ROOT, 'sitemap-video.xml');
-const SITE_BASE_URL = (process.env.PUBLIC_BASE_URL || 'https://ultrapelis.netlify.app').replace(/\/+$/, '');
-const SUPABASE_URL = (process.env.SUPABASE_URL || '').trim();
-const SUPABASE_ANON_KEY = (process.env.SUPABASE_ANON_KEY || '').trim();
-const USE_SUPABASE_VIEWS = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
 const SYNC_COOLDOWN_MS = 1500;
 const ADDON_ID = 'com.ultrapelis.stremio';
 const ADDON_NAME = 'Ultrapelis';
@@ -66,6 +62,11 @@ function loadEnvFile(filePath) {
 
 loadEnvFile(ENV_FILE);
 
+const SITE_BASE_URL = (process.env.PUBLIC_BASE_URL || 'https://ultrapelis.netlify.app').replace(/\/+$/, '');
+const SUPABASE_URL = (process.env.SUPABASE_URL || '').trim();
+const SUPABASE_ANON_KEY = (process.env.SUPABASE_ANON_KEY || '').trim();
+const USE_SUPABASE_VIEWS = Boolean(SUPABASE_URL && SUPABASE_ANON_KEY);
+
 const MIME_TYPES = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
@@ -94,6 +95,11 @@ function escapeSql(value) {
   return String(value).replace(/'/g, "''");
 }
 
+function isInvalidEmbedUrl(url) {
+  const value = String(url || '').trim();
+  return !value || /no-video\.html/i.test(value);
+}
+
 function extractServerSources(html) {
   const out = [];
   const regex = /<button([^>]*class=["'][^"']*server-btn[^"']*["'][^>]*)data-src=["']([^"']*)["'][^>]*>/gi;
@@ -102,6 +108,7 @@ function extractServerSources(html) {
     const attrs = match[1] || '';
     const src = (match[2] || '').trim();
     if (!src) continue;
+    if (isInvalidEmbedUrl(src)) continue;
     if (/data-trailer/i.test(attrs)) continue;
     out.push(src);
   }
@@ -514,7 +521,7 @@ function buildVideoInfos(filePath, html, baseUrl) {
 
   if (isMovie) {
     const embedUrl = String(data.embedUrl || '').trim();
-    if (!embedUrl || !thumbnail) return [];
+    if (!embedUrl || isInvalidEmbedUrl(embedUrl) || !thumbnail) return [];
     return [
       {
         title: titleBase,
@@ -548,6 +555,8 @@ function buildVideoInfos(filePath, html, baseUrl) {
       const sources = Array.isArray(episode?.sources) ? episode.sources : [];
       const first = sources.find((item) => item && item.src) || null;
       if (!first) return;
+      const embedUrl = String(first.src || '').trim();
+      if (!embedUrl || isInvalidEmbedUrl(embedUrl)) return;
       const episodeNumber = String(episode?.number || '').trim();
       const episodeTitle = String(episode?.title || '').trim();
       const seasonTag = seasonNumber ? `T${seasonNumber}` : '';
@@ -558,7 +567,7 @@ function buildVideoInfos(filePath, html, baseUrl) {
         title: fullTitle,
         description,
         thumbnail,
-        embedUrl: String(first.src || '').trim(),
+        embedUrl,
         durationIso: '',
         durationSeconds: 0,
         publicationDate,
@@ -1524,6 +1533,34 @@ function ensureSeriesEpisodesAddedAt(filePath, html) {
 }
 
 function renderSeriesCards(series, limit = 20) {
+  const mapSeriesGenre = (genre) => {
+    const key = String(genre || '').trim().toLowerCase();
+    if (!key) return '';
+    const map = {
+      'sci-fi & fantasy': 'Ciencia ficcion',
+      'science fiction': 'Ciencia ficcion',
+      'fantasy': 'Fantasia',
+      'action & adventure': 'Accion',
+      'action': 'Accion',
+      'adventure': 'Aventura',
+      'mystery': 'Misterio',
+      'crime': 'Crimen',
+      'drama': 'Drama',
+      'comedy': 'Comedia',
+      'romance': 'Romance',
+      'horror': 'Terror',
+      'thriller': 'Thriller',
+      'animation': 'Animacion',
+      'family': 'Familiar',
+      'musical': 'Musical',
+      'music': 'Musical',
+      'war & politics': 'Drama',
+      'documentary': 'Biografica',
+      'history': 'Biografica',
+    };
+    return map[key] || genre;
+  };
+
   const posterFallbacks = [
     'img/poster-fallback.svg',
     './img/poster-fallback.svg',
@@ -1535,9 +1572,13 @@ function renderSeriesCards(series, limit = 20) {
       const href = `series/${item.slug || ''}.html`;
       const title = escapeHtml(item.title || 'Serie');
       const poster = escapeHtml(item.poster || 'img/poster-fallback.svg');
-      const genres = Array.isArray(item.genres) ? item.genres : [];
-      const meta = genres.length ? genres.join(' • ') : '';
-      const dataGenres = genres
+      const rawGenres = Array.isArray(item.genres) ? item.genres : [];
+      const mappedGenres = rawGenres
+        .map(mapSeriesGenre)
+        .map((g) => String(g || '').trim())
+        .filter(Boolean);
+      const meta = mappedGenres.length ? mappedGenres[0] : 'Serie';
+      const dataGenres = mappedGenres
         .map((genre) => String(genre || '').trim().toLowerCase())
         .filter(Boolean)
         .join('|');
@@ -1557,6 +1598,34 @@ function renderSeriesCards(series, limit = 20) {
 }
 
 function renderSeriesFeaturedCards(series, limit = 20) {
+  const mapSeriesGenre = (genre) => {
+    const key = String(genre || '').trim().toLowerCase();
+    if (!key) return '';
+    const map = {
+      'sci-fi & fantasy': 'Ciencia ficcion',
+      'science fiction': 'Ciencia ficcion',
+      'fantasy': 'Fantasia',
+      'action & adventure': 'Accion',
+      'action': 'Accion',
+      'adventure': 'Aventura',
+      'mystery': 'Misterio',
+      'crime': 'Crimen',
+      'drama': 'Drama',
+      'comedy': 'Comedia',
+      'romance': 'Romance',
+      'horror': 'Terror',
+      'thriller': 'Thriller',
+      'animation': 'Animacion',
+      'family': 'Familiar',
+      'musical': 'Musical',
+      'music': 'Musical',
+      'war & politics': 'Drama',
+      'documentary': 'Biografica',
+      'history': 'Biografica',
+    };
+    return map[key] || genre;
+  };
+
   const posterFallbacks = [
     'img/poster-fallback.svg',
     './img/poster-fallback.svg',
@@ -1568,9 +1637,13 @@ function renderSeriesFeaturedCards(series, limit = 20) {
       const href = `series/${item.slug || ''}.html`;
       const title = escapeHtml(item.title || 'Serie');
       const poster = escapeHtml(item.poster || 'img/poster-fallback.svg');
-      const genres = Array.isArray(item.genres) ? item.genres : [];
-      const meta = genres.length ? genres.join(' • ') : '';
-      const dataGenres = genres
+      const rawGenres = Array.isArray(item.genres) ? item.genres : [];
+      const mappedGenres = rawGenres
+        .map(mapSeriesGenre)
+        .map((g) => String(g || '').trim())
+        .filter(Boolean);
+      const meta = mappedGenres.length ? mappedGenres[0] : 'Serie';
+      const dataGenres = mappedGenres
         .map((genre) => String(genre || '').trim().toLowerCase())
         .filter(Boolean)
         .join('|');
