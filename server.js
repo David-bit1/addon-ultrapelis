@@ -1699,8 +1699,9 @@ function renderRecentEpisodeCards(episodes, limit = 20) {
     .join('\n');
 }
 
-function getRecentEpisodesFromSeries(days = 365, perSeriesLimit = 50, limit = 100) {
-  const cutoff = Date.now() - (days || 365) * 24 * 60 * 60 * 1000;
+function getRecentEpisodesFromSeries(days = 7, perSeriesLimit = 50, limit = 100) {
+  const safeDays = Number.isFinite(days) && days > 0 ? days : 7;
+  const cutoff = Date.now() - safeDays * 24 * 60 * 60 * 1000;
   const files = walkHtmlFiles(SERIES_DIR);
   const episodes = [];
 
@@ -1729,7 +1730,7 @@ function getRecentEpisodesFromSeries(days = 365, perSeriesLimit = 50, limit = 10
         const sources = Array.isArray(ep?.sources) ? ep.sources : [];
         if (!sources.find((item) => item && item.src)) return;
         const addedAtMs = Date.parse(String(ep.added_at || '')) || Date.now();
-        // Eliminamos el filtro de fecha para asegurar que aparezcan los capitulos.
+        if (addedAtMs < cutoff) return;
         const episodeNumber = Number(ep?.number || epIdx + 1);
         seriesEpisodes.push({
           slug: seriesInfo.slug,
@@ -1844,13 +1845,11 @@ function renderIndexFromTemplate(movies = []) {
   const recentEpisodesEnd = html.indexOf('</div>\n</section>', recentEpisodesStart);
   if (recentEpisodesStart !== -1 && recentEpisodesEnd !== -1) {
     const tagStart = html.lastIndexOf('<div', recentEpisodesStart);
-    const recentEpisodes = getRecentEpisodesFromSeries(90, 50, 100);
-    if (recentEpisodes.length > 0) {
-      const recentCards = renderRecentEpisodeCards(recentEpisodes, 100);
-      const before = html.slice(0, tagStart);
-      const after = html.slice(recentEpisodesEnd);
-      html = `${before}<div class="featured-row" id="recent-episodes-row" role="list" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 16px; padding: 10px 0 20px; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; margin-top: 10px;">\n${recentCards}\n${after}`;
-    }
+    const recentEpisodes = getRecentEpisodesFromSeries(7, 50, 100);
+    const recentCards = renderRecentEpisodeCards(recentEpisodes, 100);
+    const before = html.slice(0, tagStart);
+    const after = html.slice(recentEpisodesEnd);
+    html = `${before}<div class="featured-row" id="recent-episodes-row" role="list" style="display: flex; flex-wrap: nowrap; overflow-x: auto; gap: 16px; padding: 10px 0 20px; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; -webkit-overflow-scrolling: touch; scroll-behavior: smooth; margin-top: 10px;">\n${recentCards}\n${after}`;
   }
 
   const heroMovie = featuredMovies[0] || movieList[0];
@@ -2140,18 +2139,26 @@ function toStremioSeriesMeta(serie, baseUrl, videos = null) {
   const id = toStremioSeriesId(slug);
   if (!id) return null;
   const genres = Array.isArray(serie.genres) ? serie.genres : [];
+  const poster = toAbsoluteUrl(baseUrl, serie.poster || '');
+  const background = toAbsoluteUrl(baseUrl, serie.banner || serie.poster || '');
   const meta = {
     id,
     type: 'series',
     name: serie.title || slug,
     description: serie.description || '',
-    poster: toAbsoluteUrl(baseUrl, serie.poster || ''),
-    background: toAbsoluteUrl(baseUrl, serie.banner || serie.poster || ''),
-    logo: toAbsoluteUrl(baseUrl, serie.poster || ''),
+    poster,
+    background,
+    logo: poster,
     releaseInfo: '',
     genres,
   };
-  if (Array.isArray(videos)) meta.videos = videos;
+  if (Array.isArray(videos)) {
+    meta.videos = videos.map((video) => ({
+      ...video,
+      thumbnail: video.thumbnail || background || poster,
+      overview: video.overview || serie.description || '',
+    }));
+  }
   return meta;
 }
 

@@ -9,7 +9,7 @@ const {
 const ROOT = path.join(__dirname, '..');
 const MOVIES_DIR = path.join(ROOT, 'peliculas');
 const SERIES_DIR = path.join(ROOT, 'series');
-const BASE_URL = String(process.env.PUBLIC_BASE_URL || 'https://ultrapelis.gt.tc').replace(/\/+$/, '');
+const BASE_URL = String(process.env.PUBLIC_BASE_URL || 'https://ultrapelis.netlify.app').replace(/\/+$/, '');
 
 function walkHtmlFiles(dir) {
   if (!fs.existsSync(dir)) return [];
